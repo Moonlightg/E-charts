@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EchartsDemo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="lib/echarts/echarts.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script> 
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+</head>
+<body>
+    <div class="e-main">
+        <div class="e-nav">
+            <div class="e-logo">
+                <div class="logo">
+                    <img src="images/logo.png">
+                </div>
+                <span class="h2">E-charts</span>
+            </div>
+            <ul class="menu-list">
+                <li class="on">
+                    <a href="javascript:;">折线图</a>
+                </li>
+                <li>
+                    <a href="javascript:;">柱状图</a>
+                </li>
+                <li>
+                    <a href="javascript:;">条形图</a>
+                </li>
+                <li>
+                    <a href="javascript:;">饼图</a>
+                </li>
+                <li>
+                    <a href="javascript:;">面积图</a>
+                </li>
+            </ul>
+        </div>
+        <div class="e-content">
+            <div class="layout-wrap row">
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">基础折线图</div>
+                            <div id="e-line01" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">基础折线图(X轴为起点)</div>
+                            <div id="e-line02" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">基础折线图(节点显示数值)</div>
+                            <div id="e-line03" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">曲线折线图</div>
+                            <div id="e-line04" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">面积图</div>
+                            <div id="e-line05" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">面积图(渐变色+虚线)</div>
+                            <div id="e-line06" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">堆积面积图</div>
+                            <div id="e-line07" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">阶梯图</div>
+                            <div id="e-line08" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">双X轴</div>
+                            <div id="e-line09" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-h3">
+                        <div class="e-layout boxall flex flex-column">
+                            <div class="alltitle">双Y轴</div>
+                            <div id="e-line10" class="flex-auto"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/e-line.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            Eline1();
+            Eline2();
+            Eline3();
+            Eline4();
+            Eline5();
+            Eline6();
+            Eline7();
+            Eline8();
+            Eline9();
+            Eline10();
+        });
+    </script>
+</body>
+
+</html>
