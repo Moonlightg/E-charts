@@ -21,11 +21,11 @@
                 <span class="h2">E-charts</span>
             </div>
             <ul class="menu-list">
-                <li class="on">
-                    <a href="javascript:;">折线图</a>
-                </li>
                 <li>
-                    <a href="e-bar.html">柱状图</a>
+                    <a href="index.html">折线图</a>
+                </li>
+                <li class="on">
+                    <a href="javascript:;">柱状图</a>
                 </li>
                 <li>
                     <a href="javascript:;">条形图</a>
@@ -43,8 +43,8 @@
                 <div class="col-md-6">
                     <div class="col-h3">
                         <div class="e-layout boxall flex flex-column">
-                            <div class="alltitle">基础折线图</div>
-                            <div id="e-line01" class="flex-auto"></div>
+                            <div class="alltitle">基础柱状图</div>
+                            <div id="e-bar01" class="flex-auto"></div>
                             <div class="boxfoot"></div>
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                 <div class="col-md-6">
                     <div class="col-h3">
                         <div class="e-layout boxall flex flex-column">
-                            <div class="alltitle">基础折线图(X轴为起点)</div>
-                            <div id="e-line02" class="flex-auto"></div>
+                            <div class="alltitle">基础柱状图(顶部显示数值)</div>
+                            <div id="e-bar02" class="flex-auto"></div>
                             <div class="boxfoot"></div>
                         </div>
                     </div>
@@ -61,8 +61,8 @@
                 <div class="col-md-6">
                     <div class="col-h3">
                         <div class="e-layout boxall flex flex-column">
-                            <div class="alltitle">基础折线图(节点显示数值)</div>
-                            <div id="e-line03" class="flex-auto"></div>
+                            <div class="alltitle">多柱状图</div>
+                            <div id="e-bar03" class="flex-auto"></div>
                             <div class="boxfoot"></div>
                         </div>
                     </div>
@@ -70,8 +70,8 @@
                 <div class="col-md-6">
                     <div class="col-h3">
                         <div class="e-layout boxall flex flex-column">
-                            <div class="alltitle">曲线折线图</div>
-                            <div id="e-line04" class="flex-auto"></div>
+                            <div class="alltitle">柱状堆叠图(动态显示总和)</div>
+                            <div id="e-bar04" class="flex-auto"></div>
                             <div class="boxfoot"></div>
                         </div>
                     </div>
@@ -134,13 +134,13 @@
         </div>
     </div>
 
-    <script src="./js/e-line.js"></script>
+    <script src="./js/e-bar.js"></script>
     <script type="text/javascript">
         $(function(){
-            Eline1();
-            Eline2();
-            Eline3();
-            Eline4();
+            Ebar1();
+            Ebar2();
+            Ebar3();
+            Ebar4();
             Eline5();
             Eline6();
             Eline7();
