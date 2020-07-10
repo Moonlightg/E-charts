@@ -460,7 +460,12 @@ function Ebar6() {
                 }
             }
         },
-        grid: grid,
+        grid: {
+            x: 50,
+            y: 25,
+            x2: 10,
+            y2: 25
+        },
         xAxis: [{
             type: 'category',
             axisLine:{
@@ -478,7 +483,13 @@ function Ebar6() {
                     color:'#fff',
                 },
             },
-            data: ['1月', '2月', '3月', '4月', '5月', '6月']
+            data: function () {
+                var list = [];
+                for (var i = 1; i <= 6; i++) {
+                    list.push('7月' + i + '日');
+                }
+                return list;
+            }()
         }],
         yAxis: [{
             type: 'value',
@@ -496,34 +507,44 @@ function Ebar6() {
                  color:"rgba(255,255,255,.5)"
             }
         }],
-        series: [{
-            name:"Tokyo",
-            type:'line',
-            smooth:true, // 把线变成曲线
-            itemStyle: {
-                normal: {
-                    // 折线图区域颜色渐变
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1,[{
-                            offset: 0, color: 'rgba(0, 226, 129, 1)' // 0% 处的颜色
-                        },{
-                            offset: 1, color: 'rgba(0, 226, 129, 0.5)' // 100% 处的颜色
-                        }]
-                    ),
-                    label : {
-                        show: true,
-                        textStyle: {
-                            color:'#fff',
-                        }
-                    },
-                    lineStyle:{
-                        width:2,
-                        type:'dotted'  //'dotted'虚线 'solid'实线
+        series: [
+            {
+                name: '辅助',
+                type: 'bar',
+                stack: '总量',
+                itemStyle: {
+                    barBorderColor: 'rgba(0,0,0,0)',
+                    color: 'rgba(0,0,0,0)'
+                },
+                emphasis: {
+                    itemStyle: {
+                        barBorderColor: 'rgba(0,0,0,0)',
+                        color: 'rgba(0,0,0,0)'
                     }
-                }
+                },
+                data: [0, 900, 1245, 1530, 1376, 1376]
             },
-            data:[30,50,85,109,83,93],
-            areaStyle: {} //面积图样式
-        }]
+            {
+                name: '收入',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'top'
+                },
+                data: [900, 345, 393, '-', '-', 135]
+            },
+            {
+                name: '支出',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'bottom'
+                },
+                data: ['-', '-', '-', 108, 154, '-']
+            }
+        ]
     };
     chart6.setOption(option6);
 }
