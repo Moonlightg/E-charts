@@ -324,7 +324,7 @@ function Ebar4() {
     if(series[series.length - 1]){
       series[series.length - 1]["label"]["formatter"] = fun;  
     }
-    
+
     chart4.setOption(option4);
 
     // 点击图例求和
@@ -368,9 +368,9 @@ function Ebar4() {
     })
 }
 
-function Eline5() {
+function Ebar5() {
     // 基础面积折线图
-    var chart5 = echarts.init(document.getElementById('e-line05'));
+    var chart5 = echarts.init(document.getElementById('e-bar05'));
     option5 = {
         color: color,
         tooltip: {
@@ -399,7 +399,7 @@ function Eline5() {
                     color:'#fff',
                 },
             },
-            data: ['1月', '2月', '3月', '4月', '5月', '6月']
+            data: ['总费用', '房租', '水电费', '交通费', '伙食费', '日用品数']
         }],
         yAxis: [{
             type: 'value',
@@ -418,29 +418,38 @@ function Eline5() {
             }
         }],
         series: [{
-            name:"Tokyo",
-            type:'line',
-            smooth:true,  // 把线变成曲线
+            name: '辅助',
+            type: 'bar',
+            stack: '总量',
             itemStyle: {
-                normal: {
-                    label : {
-                        show: true,
-                        textStyle: {
-                            color:'#fff',
-                        }
-                    }
+                barBorderColor: 'rgba(0,0,0,0)',
+                color: 'rgba(0,0,0,0)'
+            },
+            emphasis: {
+                itemStyle: {
+                    barBorderColor: 'rgba(0,0,0,0)',
+                    color: 'rgba(0,0,0,0)'
                 }
             },
-            data:[30,50,85,109,83,93],
-            areaStyle: {} //面积图样式
+            data: [0, 1700, 1400, 1200, 300, 0]
+        },
+        {
+            name: '生活费',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'inside'
+            },
+            data: [2900, 1200, 300, 200, 900, 300]
         }]
     };
     chart5.setOption(option5);
 }
 
-function Eline6() {
+function Ebar6() {
     // 渐变色面积图-虚线
-    var chart6 = echarts.init(document.getElementById('e-line06'));
+    var chart6 = echarts.init(document.getElementById('e-bar06'));
     option6 = {
         color: color,
         tooltip: {
