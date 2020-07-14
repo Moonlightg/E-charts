@@ -719,9 +719,9 @@ function Eline8() {
     chart8.setOption(option8);
 }
 
-function Eline9() {
+function Ebar9() {
     // 双x轴
-    var chart9 = echarts.init(document.getElementById('e-line09'));
+    var chart9 = echarts.init(document.getElementById('e-bar09'));
     option9 = {
         color: color,
         tooltip: {
@@ -826,14 +826,14 @@ function Eline9() {
         series: [
             {
                 name: '2018 访问量',
-                type: 'line',
+                type: 'bar',
                 xAxisIndex: 1,
                 smooth: true,
                 data: [26, 59, 90, 264, 287, 707, 1756, 1822, 487, 188, 60, 23]
             },
             {
                 name: '2019 访问量',
-                type: 'line',
+                type: 'bar',
                 smooth: true,
                 data: [39, 58, 111, 187, 483, 692, 2316, 466, 554, 184, 103, 7]
             }
