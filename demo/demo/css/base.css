@@ -1,0 +1,109 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,span,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-text-size-adjust: none;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+html,body { font-size: 14px;}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  letter-spacing: 0;
+}
+input[type=button],
+input[type=text],
+input[type=password],
+[type=tel],
+[type=number],
+[type=url],
+[type=email],
+button,
+textarea {
+  -webkit-appearance: none;
+  outline: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+html,body {
+  width: 100%;
+  height: 100%;
+  background: #09294f;
+  overflow: hidden;
+}
+.flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lsc-main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.lsc-header {
+    padding: 0 30px;
+    flex: 0 0 80px;
+    background: #0f1746;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-title {
+    display: flex;
+    align-items: baseline;
+}
+.header-title h1 {
+    font-size: 32px;
+}
+.header-title span {
+    margin-left: 15px;
+}
+.time-box {
+    display: flex;
+    align-items: center;
+}
+.time-l {
+    margin-right: 15px;
+    text-align: right;
+}
+.hms {
+    font-size: 24px;
+    font-weight: bold;
+}
+.lsc-content {
+    flex: 1;
+    background: #F20;
+}
+.lsc-footer {
+    flex: 0 0 60px;
+    background: #001688;
+}
