@@ -86,24 +86,242 @@ html,body {
 }
 .header-title span {
     margin-left: 15px;
+    font-size: 20px;
 }
 .time-box {
     display: flex;
     align-items: center;
+    font-size: 20px;
 }
 .time-l {
     margin-right: 15px;
     text-align: right;
 }
 .hms {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
 }
 .lsc-content {
     flex: 1;
-    background: #F20;
+    overflow: hidden;
 }
 .lsc-footer {
     flex: 0 0 60px;
-    background: #001688;
+    padding: 0 30px;
+    background: #0f1746;
 }
+.t-box{
+  color: #FFF;
+  padding-top: 10px;
+}
+.t-content p{
+  display:inline-block;
+}
+.t-content .t-text {
+    height: 40px !important;
+    line-height: 40px;
+    font-size: 22px;
+    background: none;
+}
+.t-content p.padding{
+  padding-right: 300px;
+}
+.lc-r {
+    width: 400px;
+    height: 100%;
+    float: right;
+    background: #030a25;
+    padding: 7.5px 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.lc-info {
+    height: 100%;
+    margin-right: 400px;
+    padding: 15px 0 15px 15px;
+    background: #030a25;
+}
+.video-box {
+    position: relative;
+    height: 100%;
+    padding-top: 40px;
+    flex-direction: column;
+}
+.video-box video {
+    flex: 1;
+}
+.vb-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: right;
+}
+.vb-head.tl {
+    text-align: left;
+}
+.vb-head.tl a i {
+    margin-left: 0;
+    margin-right: 5px;
+}
+.vb-head a {
+    font-size: 16px;
+    color: #fff;
+}
+.vb-head a i {
+    margin-left: 5px;
+    font-size: 16px;
+}
+.vb-btn-bar {
+    padding: 15px;
+}
+.vb-btn-bar a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #fff;
+}
+.vb-btn-bar a:hover {
+    color: #FFEB3B;
+}
+.vb-btn-bar a i {
+    margin-right: 5px;
+}
+.video-rl {
+    height: 100%;
+    overflow: auto;
+}
+.video-iv {
+    position: relative;
+}
+.video-iv img{
+    display: block;
+    width: 100%;
+}
+.video-item {
+    margin-bottom: 15px;
+}
+.video-item p {
+    padding: 10px 0;
+    color: #fff;
+}
+.video-item.active .video-iv{
+    border: 2px solid #F44336;
+}
+.video-item.active p {
+    color: red;
+}
+.video-lc .lc-r{
+    width: 300px;
+}
+.video-lc .lc-info {
+    margin-right: 300px;
+}
+.video-search {
+    position: relative;
+    padding: 10px 0 0;
+}
+.video-search input {
+    line-height: 35px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    padding: 0 20px 0 40px;
+    font-size: 16px;
+    width: 100%;
+}
+.video-search i {
+    position: absolute;
+    top: 17px;
+    left: 10px;
+    font-size: 22px;
+    color: #999;
+}
+.iv-time {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 11px;
+    line-height: 1;
+    background: rgba(21, 21, 21, 0.7);
+    border-radius: 30px;
+    color: #fff;
+}
+.card-item {
+    background: #fff;
+    border-radius: 5px;
+    flex: 1;
+    margin: 7.5px 0;
+    overflow: hidden;
+}
+.card-head {
+    height: 40px;
+    padding: 0 15px;
+    position: relative;
+    line-height: 40px;
+    background: #3f4c8e;
+    color: #fff;
+    font-size: 18px;
+}
+.card-head a {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #fff;
+    font-size: 15px;
+}
+.card-head a i {
+    margin-left:5px;
+    font-size: 16px;
+}
+.card-list a {
+    display: block;
+    padding: 0 15px;
+    line-height: 40px;
+    color: #333;
+}
+.card-list a:hover{
+    background: #dde1ff;
+    color: #3c4b93;
+}
+.card-list a + a {
+    border-top: 1px solid #ddd;
+}
+.nav-menu {
+    display: flex;
+}
+.nav-menu a {
+    margin-left: 60px;
+    display: block;
+    text-align: center;
+    color: #fff;
+}
+.nav-menu a:hover {
+    color: #FFEB3B;
+}
+.nav-menu a i {
+    font-size: 36px;
+}
+.nav-menu a p {
+    margin-top: 5px;
+}
+.nav-menu li.return-btn a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    margin-left: 30px;
+    border-left: 1px solid #353f6f;
+    color: #7885c3;
+}
+.title {
+    margin: 15px 0;
+    padding-left: 15px;
+    line-height: 1;
+    border-left: 3px solid #fff;
+    font-size: 16px;
+    color: #fff;
+}
+
