@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>法院庭审管理平台</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/report.js"></script>
+    <link href="css/liMarquee.css" rel="stylesheet">
+    <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+</head>
+<body>
+    <div class="lsc-main" style="opacity: 1">
+        <header class="lsc-header">
+            <div class="header-title">
+                <h1>远程多媒体内容发布系统</h1>
+                <span>XXX诉服站</span>
+            </div>
+            <div class="header-right">
+                <ul class="nav-menu">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-video-camera"></i>
+                            <p>直播</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="video-list.html">
+                            <i class="fa fa-film"></i>
+                            <p>视频</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="img-home.html">
+                            <i class="fa fa-picture-o"></i>
+                            <p>图片</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="file-home.html">
+                            <i class="fa fa-folder-open"></i>
+                            <p>文件</p>
+                        </a>
+                    </li>
+                    <li class="return-btn">
+                        <a href="index.html">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="lsc-content video-lc">
+            <div class="lc-r">
+                <div class="video-search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" name="" placeholder="输入关键字" />
+                </div>
+                <p class="title">图片列表</p>
+                <div class="img-rl">
+                    <div class="img-item active">
+                        <div class="img-iv" style="background: url(images/u1.png); background-size: cover;">
+                        </div>
+                        <p>领导考察新农村统筹示范园</p>
+                    </div>
+                    <div class="img-item">
+                        <div class="img-iv" style="background: url(images/u2.png); background-size: cover;">
+                        </div>
+                        <p>中央领导莅临视察指导工作</p>
+                    </div>
+                    <div class="img-item">
+                        <div class="img-iv" style="background: url(images/u3.png); background-size: cover;">
+                        </div>
+                        <p>省领导视察工作成果</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lc-info">
+                <div class="panel-content video-box flex">
+                    <div class="vb-head tl">
+                        <a href="img-list.html"><i class="fa fa-angle-left"></i>返回</a>
+                    </div>
+                    <div class="img-dbox">
+                        <div id="pageContent">
+                            <div id="imgContainer">
+                                <img id="imageFullScreen" src="images/u1.png" />
+                            </div>
+                            <div id="positionButtonDiv">
+                                <p>
+                                    <span>
+                                        <img id="zoomInButton" class="zoomButton" src="images/zoomIn.png" title="zoom in" alt="zoom in" /> 
+                                        <img id="zoomOutButton" class="zoomButton" src="images/zoomOut.png" title="zoom out" alt="zoom out" /> 
+                                    </span> 
+                                </p>
+                                <p>
+                                    <span class="positionButtonSpan">
+                                        <map name="positionMap" class="positionMapClass">
+                                        <area id="topPositionMap" shape="rect" coords="20,0,40,20" title="move up" alt="move up" />
+                                        <area id="leftPositionMap" shape="rect" coords="0,20,20,40" title="move left" alt="move left" />
+                                        <area id="rightPositionMap" shape="rect" coords="40,20,60,40" title="move right" alt="move right" />
+                                        <area id="bottomPositionMap" shape="rect" coords="20,40,40,60" title="move bottom" alt="move bottom" />
+                                        </map>
+                                        <img src="images/position.png" usemap="#positionMap" />
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="title n-border">领导考察新农村统筹示范园</p>
+                    <div class="vb-btn-bar">
+                        <a href="javascript:;"><i class="fa fa-star"></i>收藏</a>
+                        <a href="javascript:;"><i class="fa fa-download"></i>下载</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/e-smart-zoom-jquery.min.js"></script>
+    <script type="text/javascript"> 
+         $(document).ready(function() {        
+            $('#imageFullScreen').smartZoom({'containerClass':'zoomableContainer'});        
+            $('#topPositionMap,#leftPositionMap,#rightPositionMap,#bottomPositionMap').bind("click", moveButtonClickHandler);
+            $('#zoomInButton,#zoomOutButton').bind("click", zoomButtonClickHandler);
+            function zoomButtonClickHandler(e){
+                var scaleToAdd = 0.8;
+                if(e.target.id == 'zoomOutButton')
+                    scaleToAdd = -scaleToAdd;
+                $('#imageFullScreen').smartZoom('zoom', scaleToAdd);
+            }        
+            function moveButtonClickHandler(e){
+                var pixelsToMoveOnX = 0;
+                var pixelsToMoveOnY = 0;
+                switch(e.target.id){
+                    case "leftPositionMap":
+                        pixelsToMoveOnX = 50;   
+                    break;
+                    case "rightPositionMap":
+                        pixelsToMoveOnX = -50;
+                    break;
+                    case "topPositionMap":
+                        pixelsToMoveOnY = 50;   
+                    break;
+                    case "bottomPositionMap":
+                        pixelsToMoveOnY = -50;  
+                    break;
+                }
+                $('#imageFullScreen').smartZoom('pan', pixelsToMoveOnX, pixelsToMoveOnY);
+            } 
+        });
+    </script>
+</body>
+
+</html>
