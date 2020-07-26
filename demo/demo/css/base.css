@@ -141,6 +141,7 @@ html,body {
     margin-right: 400px;
     padding: 15px 0 15px 15px;
     background: #030a25;
+    overflow: auto;
 }
 .video-box {
     position: relative;
@@ -195,28 +196,78 @@ html,body {
 .vb-btn-bar a i {
     margin-right: 5px;
 }
-.video-rl {
+.video-rl,
+.img-rl,
+.file-rl {
     height: 100%;
     overflow: auto;
 }
-.video-iv {
+.file-item {
+    width: 150px;
+    margin: 5px;
+    color: #333;
+}
+.file-item .x-icon {
+    margin: 0 auto;
+}
+.file-item p {
+    height: 40px;
+    padding: 0 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.file-rl .file-item {
+    display: flex;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    color: #fff;
+    align-items: center;
+    border-bottom: 1px solid #101b42;
+}
+.file-rl .file-item:hover,
+.file-rl .file-item.active {
+    background: #01208a;
+}
+.file-rl .file-item .x-icon {
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    font-size: 80px;
+}
+.file-rl .file-item p {
+    height: auto;
+}
+.video-iv,
+.img-iv {
     position: relative;
 }
-.video-iv img{
+.img-iv {
+    width: 270px;
+    height: 155px;
+}
+.video-iv img,
+.img-iv img{
     display: block;
     width: 100%;
 }
-.video-item {
+.video-item,
+.img-item {
     margin-bottom: 15px;
 }
-.video-item p {
+.video-item p,
+.img-item p {
     padding: 10px 0;
     color: #fff;
 }
-.video-item.active .video-iv{
+.video-item.active .video-iv,
+.img-item.active .img-iv{
     border: 2px solid #F44336;
 }
-.video-item.active p {
+.video-item.active p,
+.img-item.active p{
     color: red;
 }
 .video-lc .lc-r{
@@ -332,6 +383,16 @@ html,body {
     font-size: 16px;
     color: #fff;
 }
+.title a {
+    color: #333;
+}
+.title a:hover {
+    color: blue;
+}
+.title.n-border {
+    border: none;
+    padding-left: 0;
+}
 .video-lw {
     width: 100%;
     height: 100%;
@@ -344,26 +405,35 @@ html,body {
     border-left: 3px solid #444;
     font-weight: 600;
 }
-.video-lw__list {
+.video-lw__list,
+.img-lw__list {
     display: flex;
     flex-wrap: wrap;
     margin-left: -7.5px;
     margin-right: -7.5px;
 }
-.video-lw__list .video-item {
+.video-lw__list .video-item,
+.img-lw__list .img-item {
     width: 250px;
     margin: 0 7.5px;
 }
-.video-lw__list .video-item .video-iv {
+.img-lw__list .img-item .img-iv {
+    width: 100%;
+}
+.video-lw__list .video-item .video-iv,
+.img-lw__list .img-item .img-iv {
     border: 2px solid #fff;
 }
-.video-lw__list .video-item:hover .video-iv {
+.video-lw__list .video-item:hover .video-iv,
+.img-lw__list .img-item:hover .img-iv {
     border: 2px solid red;
 }
-.video-lw__list .video-item:hover p {
+.video-lw__list .video-item:hover p,
+.img-lw__list .img-item:hover p {
     color: red;
 }
-.video-lw__list .video-item p {
+.video-lw__list .video-item p,
+.img-lw__list .img-item p {
     margin: 10px 0;
     padding: 0;
     height: 40px;
@@ -389,6 +459,30 @@ html,body {
 }
 .x-icon-file {
     background: url(../images/file.png);
+    background-size: cover;
+}
+.x-icon-doc {
+    background: url(../images/doc.png);
+    background-size: cover;
+}
+.x-icon-ppt {
+    background: url(../images/ppt.png);
+    background-size: cover;
+}
+.x-icon-xlsx {
+    background: url(../images/xlsx.png);
+    background-size: cover;
+}
+.x-icon-pptx {
+    background: url(../images/pptx.png);
+    background-size: cover;
+}
+.x-icon-swf {
+    background: url(../images/swf.png);
+    background-size: cover;
+}
+.x-icon-txt {
+    background: url(../images/txt.png);
     background-size: cover;
 }
 .folder-list {
@@ -417,6 +511,43 @@ html,body {
     white-space: nowrap;
     margin-bottom: 5px;
 }
+.img-dbox {
+    position: relative;
+    flex: 1;
+    text-align: center;
+}
+.img-dbox img {
+    display: block;
+    max-width: 100%;
+    margin: 15px auto;
+}
+.img-dbox + p.title {
+    font-size: 24px;
+}
+.file-dbox {
+    flex: 1;
+}
+.file-dbox>iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
+
+#pageContent {width: 100%; height: 100%;overflow: hidden;position:absolute; top: 0;left: 0;}
+
+#imgContainer {width: 100%;height: 100%;}
+
+#positionButtonDiv {background: rgb(58, 56, 63);background: rgba(58, 56, 63, 0.8);border: solid 1px #100000;color: #fff;padding: 8px;text-align: left;position: absolute;right:35px;top:35px;}
+
+#positionButtonDiv .positionButtonSpan img {float: right;border: 0;}
+
+.positionMapClass area {cursor: pointer;}
+
+.zoomButton {border: 0; cursor: pointer;}
+
+.zoomableContainer {background: #010617;}
+
+#imageFullScreen { margin:0; }
 
 
