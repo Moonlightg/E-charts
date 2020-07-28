@@ -20,6 +20,12 @@
             <div class="header-right">
                 <ul class="nav-menu">
                     <li>
+                        <a href="notice-list.html">
+                            <i class="fa fa-bell"></i>
+                            <p>通知动态</p>
+                        </a>
+                    </li>
+                    <li>
                         <a href="javascript:;">
                             <i class="fa fa-video-camera"></i>
                             <p>直播</p>
@@ -89,8 +95,9 @@
                             <div id="positionButtonDiv">
                                 <p>
                                     <span>
-                                        <img id="zoomInButton" class="zoomButton" src="images/zoomIn.png" title="zoom in" alt="zoom in" /> 
-                                        <img id="zoomOutButton" class="zoomButton" src="images/zoomOut.png" title="zoom out" alt="zoom out" /> 
+                                        <img id="fullButton" class="zoomButton" src="images/full.png" title="全屏" alt="full" /> 
+                                        <img id="zoomInButton" class="zoomButton" src="images/zoomIn.png" title="放大" alt="zoom in" /> 
+                                        <img id="zoomOutButton" class="zoomButton" src="images/zoomOut.png" title="缩小" alt="zoom out" /> 
                                     </span> 
                                 </p>
                                 <p>
@@ -118,7 +125,7 @@
     </div>
     <script src="js/e-smart-zoom-jquery.min.js"></script>
     <script type="text/javascript"> 
-         $(document).ready(function() {        
+        $(document).ready(function() {        
             $('#imageFullScreen').smartZoom({'containerClass':'zoomableContainer'});        
             $('#topPositionMap,#leftPositionMap,#rightPositionMap,#bottomPositionMap').bind("click", moveButtonClickHandler);
             $('#zoomInButton,#zoomOutButton').bind("click", zoomButtonClickHandler);
@@ -146,8 +153,11 @@
                     break;
                 }
                 $('#imageFullScreen').smartZoom('pan', pixelsToMoveOnX, pixelsToMoveOnY);
-            } 
+            }
         });
+        $('#fullButton').on('click',function(){
+            $('.img-dbox').toggleClass('active');
+        }) 
     </script>
 </body>
 

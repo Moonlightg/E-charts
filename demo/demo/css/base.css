@@ -114,8 +114,49 @@ html,body {
   color: #FFF;
   padding-top: 10px;
 }
-.t-content p{
-  display:inline-block;
+.t-content {
+    font-size: 16px;
+}
+.lf-label {
+    float: left;
+    width: 80px;
+    line-height: 40px;
+    font-weight: bold;
+}
+.lf-text {
+    margin-left: 80px;
+    overflow: hidden;
+}
+.lf-text__item {
+    width: 50%;
+    float: left;
+    height: 40px;
+    padding: 0 10px;
+}
+.lf-text__item .swiper-container {
+    background: #172467;
+}
+.lf-text__item a {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    color: #fff;
+
+}
+.lf-text__item a:hover {
+    color: #F90;
+}
+.lf-text__item span.t-txt {
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.lf-text__item span.t-time {
+    flex: 0 0 120px;
+    text-align: right;
 }
 .t-content .t-text {
     height: 40px !important;
@@ -333,14 +374,26 @@ html,body {
     font-size: 16px;
 }
 .card-list a {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     padding: 0 15px;
-    line-height: 40px;
+    line-height: 35px;
     color: #333;
 }
 .card-list a:hover{
     background: #dde1ff;
     color: #3c4b93;
+}
+.card-list a p {
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.card-list a span.t-time {
+    flex: 0 0 85px;
+    text-align: right;
+    color: #888;
 }
 .card-list a + a {
     border-top: 1px solid #ddd;
