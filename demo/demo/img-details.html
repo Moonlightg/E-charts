@@ -123,6 +123,15 @@
             </div>
         </div>
     </div>
+
+    <!-- 全屏大图 -->
+    <div class="full-img">
+        <span class="full-mask"></span>
+        <span class="full-close"><i class="fa fa-times"></i></span>
+        <div class="full-ibox">
+            <img id="fullImg" src="">
+        </div>
+    </div>
     <script src="js/e-smart-zoom-jquery.min.js"></script>
     <script type="text/javascript"> 
         $(document).ready(function() {        
@@ -156,8 +165,14 @@
             }
         });
         $('#fullButton').on('click',function(){
-            $('.img-dbox').toggleClass('active');
+            var url = $('#imageFullScreen').attr('src');
+            console.log(url);
+            $('#fullImg').attr('src',url);
+            $('.full-img').show();
         }) 
+        $('.full-mask,.full-close').on('click',function(){
+            $('.full-img').hide();
+        })
     </script>
 </body>
 
