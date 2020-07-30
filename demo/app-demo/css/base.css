@@ -9,7 +9,6 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
   box-sizing: border-box;
   word-wrap: break-word;
 }
-html,body { font-size: 14px;}
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   letter-spacing: 0;
@@ -47,8 +46,11 @@ a:hover {
 html,body {
   width: 100%;
   height: 100%;
-  background: #09294f;
   overflow: hidden;
+}
+body {
+    background-image: url(../images/bg.png);
+    background-size: cover;
 }
 .flex {
     display: flex;
@@ -60,4 +62,132 @@ html,body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/*设备竖屏时的样式*/
+@media all and (orientation : portrait){
+}
+/*设备横屏时的样式*/
+@media all and (orientation : landscape){
+}
+ 
+@media only screen and (min-width:320px) and (orientation:portrait){
+    html{font-size:100%;}
+}
+@media only screen and (min-width:360px) and (orientation:portrait){
+    html{font-size:125%;}
+}
+@media only screen and (min-width:400px) and (orientation:portrait){
+    html{font-size:150%;}
+}
+ 
+@media only screen and (min-width:600px) and (orientation:portrait){
+    html{font-size:200%;}
+}
+ 
+@media only screen and (max-width:768px) and (orientation:portrait){
+    .wrap{width:90%;}
+}
+@media only screen and (min-width:480px) and (orientation:landscape){
+    html{font-size:100%;}
+}
+@media only screen and (min-width:580px) and (orientation:landscape){
+    html{font-size:107%;}
+}
+@media only screen and (min-width:730px) and (orientation:landscape){
+    html{font-size:130%;}
+}
+@media only screen and (min-width:900px) and (orientation:landscape){
+    html{font-size:175%;}
+}
+@media only screen and (min-width:992px){
+    html{font-size:200%;}
+}
+
+.app-main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+}
+.app-layer {
+    border: 1px solid #3a7bde;
+    min-width: 60%;
+    min-height: 70%;
+    box-shadow: 0 0.2rem 0.2rem #285292;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: .8rem;
+}
+.set-layer {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+}
+.app-layer-head {
+    flex: 0 0 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-layui-content {
+    flex: 1;
+    padding: 1rem;
+}
+.app-layer-footer {
+    flex: 0 0 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-size: 1.6rem;
+    color: #fff;
+}
+/*layui*/
+.layui-form {
+    font-size: 1rem;
+}
+.layui-form-label {
+    width: 5rem;
+    padding: 0 1rem;
+    line-height: 3rem;
+    color: #fff;
+}
+.layui-input-block {
+    margin-left: 7rem;
+    min-height: 3rem;
+}
+.layui-form-item {
+    margin-bottom: 1.5rem;
+}
+.layui-input, 
+.layui-select, 
+.layui-textarea {
+    height: 3rem;
+    border-radius: .3rem;
+}
+.layui-form-radio * {
+    font-size: 1rem;
+    color: #fff;
+}
+.layui-form-radio {
+    line-height: 3rem;
+    margin: 0 10px 0 0;
+    padding-right: 2rem;
+}
+.layui-form-radio>i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+.layui-form-radio>i:hover, 
+.layui-form-radioed>i {
+    color: #85ea10;
+}
+.layui-btn {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 2rem;
+    font-size: 1rem;
+    border-radius: .2rem;
+}
+.layui-btn+.layui-btn {
+    margin-left: 1rem;
 }
