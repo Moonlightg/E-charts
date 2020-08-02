@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>法院庭审管理平台</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/report.js"></script>
+    <script src="lib/layui/layui.js"></script>
+    <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="lib/layui/css/layui.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-main flex flex-column">
+        <header class="app-header flex-space-between">
+            <div class="header-title">
+                <span class="logo">
+                    <img src="images/court.png">
+                </span>
+                <h1>茂名市中级人民法院</h1>
+            </div>
+            <div class="header-right">
+                <div id="todayDate"></div>
+                <a href="index.html" class="cog-btn">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+        </header>
+        <div class="app-content shot-box">
+            <div class="popup">
+                <div class="popup-head">
+                    <p style="font-weight: bold;">来访结束,请您对本次服务进行评价</p>
+                </div>
+                <div class="popup-content pj flex-center" >
+                    <a href="javascript:;">
+                        <div class="lg-img">
+                            <img src="images/evaluate-bad.png">
+                        </div>
+                        <p>一般</p>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="lg-img">
+                            <img src="images/evaluate-ok.png">
+                        </div>
+                        <p>满意</p>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="lg-img">
+                            <img src="images/evaluate-good.png">
+                        </div>
+                        <p>非常满意</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="app-footer flex">
+            <div class="user-img">
+                <img src="images/q3.jpg">
+            </div>
+            <div class="user-txt">
+                <p><span>来访人</span>李*</p>
+                <p><span>身份证号</span>441224********2222</p>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript"> 
+        $(function(){
+            layui.use(['form'], function(){
+                var form = layui.form
+                ,layer = layui.layer;
+            });
+        })
+    </script>
+</body>
+
+</html>
