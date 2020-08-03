@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>文件调度系统</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- import Vue before Element -->
+    <script src="lib/vue/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="lib/element-ui/index.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="lib/element-ui/index.css">
+    <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
+    <style>
+        .nav-menu .el-input__inner {
+            margin-top: 9px;
+            background: #1370CF;
+            width: 240px;
+            border-radius: 25px;
+            border: 1px solid #1370CF;
+            color: #fff;
+        }
+        .search-box {
+            position: relative;
+            height: 50px;
+        }
+        .search-box .nav-menu-input {
+            height: 100%;
+        }
+        .search-link {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: #1370cf;
+            top: 10px;
+            right: 0;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 0 30px 30px 0;
+            color: #fff;
+            cursor: pointer;
+            z-index: 9;
+        }
+        .header-menu a.search-link {
+            line-height: 30px; 
+        }
+        .nav-menu li.search-li:hover {
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="indexViewCententDiv">
+        <!-- 系统切换 end-->
+        <header class="header">
+            <div class="header-left fl">
+                <a href="index.html">
+                    <img src="images/login-logo.png" alt="" />
+                </a>
+
+            </div>
+            <div class="header-right fr">
+                <div class="header-menu">
+                    <ul class="nav-menu">
+                        <li class="search-li">
+                            <div class="search-box">
+                                <el-input v-model="input" placeholder="全文检索" size="small" class="nav-menu-input"></el-input>
+                                <a href="javascript:Tab.addTab('全文检索', 'frame/retrieval.html');" class="search-link">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-tasks"></i> 监控管理
+                            </a>
+                            <ul class="nav-menu-two">
+                                <!-- <li>
+                                    <a href="javascript:void(0)">文件调度情况</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">文件转换情况</a>
+                                </li> -->
+                                <li>
+                                    <a href="javascript:Tab.addTab('数据库监控情况', 'frame/jkSql.html')">数据库监控情况</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:Tab.addTab('服务器监控情况', 'frame/jkServer.html')">服务器监控情况</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-clone"></i> 基础配置
+                            </a>
+                            <ul class="nav-menu-two">
+                                <li>
+                                    <a
+                                        href="javascript:Tab.addTab('协议连接配置', 'frame/protocolConnection.html');">协议连接配置</a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="javascript:Tab.addTab('资料类型管理', 'frame/dataType.html');">资料类型管理</a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="javascript:Tab.addTab('血缘图展示demo', 'frame/demo.html');">血缘图展示端demo</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="javascript:Tab.addTab('数据库管理配置', 'frame/sqlServer.html');">数据库管理配置</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:Tab.addTab('服务器管理配置', 'frame/server.html');">服务器管理配置</a>
+                                </li> -->
+                            </ul>
+                        </li>
+<!-- 
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-bell"></i>业务消息
+                            </a>
+                            <ul class="nav-menu-two">
+                                <li>
+                                    <a href="javascript:Tab.addTab('消息推送', 'frame/xxts.html');">消息推送</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:Tab.addTab('消息提醒', 'frame/xxtx.html');">消息提醒</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li>
+                            <a href="javascript:void(0)">
+                                <img src="images/admin-pic.png" width="27" height="27" class="user_head_img"
+                                    isload="true">&nbsp;Admin
+                            </a>
+                            <ul class="nav-menu-two">
+                                <li>
+                                    <a href="javascript:void(0)">修改密码</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">个人信息</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div id="managementId" class="forecast-wrap admin">
+
+            <div class="main-right">
+                <div class="forecast-main">
+                    <div class="head">
+                        <div class="content_tab">
+                            <div class="tab_left"><a href="javascript:;"> <i class="fa fa-angle-double-left"
+                                        aria-hidden="true"></i> </a></div>
+                            <div class="tab_right"><a href="javascript:;"> <i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i> </a></div>
+                            <ul id="tabs" class="list-tab">
+                                <li id="tab__manage_indexCenter" pid="_manage_indexCenter"
+                                    data-index="_manage_indexCenter" class="cur">
+                                    <a class="waves-effect waves-light">概览</a>
+                                    <i class="tabs-close icon-close"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <section id="content">
+                        <div class="content_main">
+                            <div id="iframe__manage_indexCenter" class="iframe cur">
+                                <iframe src="home.html" frameborder="0" onload="changeFrameHeight(this)" width="100%"
+                                    frameborder="0" scrolling="auto"></iframe>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <el-dialog :title="firstDialogTitle" :visible.sync="showFirstDialog" :width="firstDialogWidth" :close-on-click-modal=false :close-on-press-escape=false>
+            <iframe id="firstDialog" frameborder="0" style="border:0;width:100%;"></iframe>
+        </el-dialog>
+        <el-dialog :title="secondDialogTitle" :width="secondDialogWidth" :visible.sync="showSecondDialog"
+            :close-on-click-modal=false :close-on-press-escape=false>
+            <iframe id="secondDialog" frameborder="0" style="border:0;width:100%;"></iframe>
+        </el-dialog>
+    </div>
+    
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        var indexViewCententDiv;
+        $(function () {
+            indexViewCententDiv = new Vue({
+                el: "#indexViewCententDiv",
+                data() {
+                    return {
+                        input: '',
+                        showFirstDialog: false,
+                        firstDialogWidth: '700px',
+                        firstDialogTitle: '',
+                        showSecondDialog: false,
+                        secondDialogWidth: '80%',
+                        secondDialogTitle: '',
+
+                    }
+                }
+            });
+            indexViewCententDiv.$children[0].rendered = true;
+            indexViewCententDiv.$children[1].rendered = true;
+            // 左侧菜单点击交互
+            $(".forecast-dropdown > a").click(function () {
+                if (obj.hasClass("menu-side-shrink")) {
+                    obj.removeClass("menu-side-shrink")
+                }
+                $(".forecast-submenu").slideUp(250);
+                if ($(this).parent().hasClass("active")) {
+                    $(".forecast-dropdown").removeClass("active");
+                    $(this).parent().removeClass("active");
+                } else {
+                    $(".forecast-dropdown").removeClass("active");
+                    $(this).next(".forecast-submenu").slideDown(250);
+                    $(this).parent().addClass("active");
+                }
+            });
+            navMax();
+            menuShrink();
+        });
+
+        var obj = $('.admin');
+        // 左侧二级菜单最大高度
+        function navMax() {
+            // 获得菜单的总高度
+            var navH = $(".forecast-nav").height();
+            console.log("navH" + navH);
+            // 一级菜单的高度总和
+            var navL = $(".forecast-nav ul li.forecast-dropdown").length * 40;
+            // 允许二级菜单的最大高度
+            var navMax_H = navH - navL - 50;
+            $(".forecast-submenu").css("max-height", navMax_H + "px");
+
+            $(".forecast-submenu li").click(function () {
+                $(this).siblings('li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        }
+        // 侧边菜单收缩
+        function menuShrink() {
+            $(document).on('click', '.menu-shrink', function () {
+                if ($(".forecast-dropdown").hasClass("active")) {
+                    $(".forecast-dropdown").removeClass("active");
+                    $(".forecast-submenu").hide();
+                }
+                hasShrink();
+            })
+        }
+
+        function hasShrink() {
+            obj.toggleClass('menu-side-shrink');
+        }
+
+        // 左侧菜单收起来时的交互
+        function modulesMenuMouseover(id) {
+            var classValue = $("#managementId");
+            if (classValue.hasClass('menu-side-shrink')) {
+                var top = event.clientY - event.offsetY;
+                console.log("top1:" + top);
+                // 处理图片问题
+                if (event.clientX != event.offsetX) {
+                    top = top - 13;
+                    console.log("top2:" + top);
+                }
+                $("#navMenuChild").attr("style", "top:" + top + "px");
+                $("#" + id).show();
+            }
+        }
+
+        function modulesMenuMouseout(id) {
+            var classValue = $("#managementId");
+            if (classValue.hasClass('menu-side-shrink')) {
+                $("#" + id).hide();
+            }
+        }
+
+        function showNavMenu(id) {
+            $("#" + id).show();
+        }
+
+        function hideNavMenu(id) {
+            $("#" + id).hide();
+        }
+    </script>
+</body>
+
+</html>

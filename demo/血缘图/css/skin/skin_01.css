@@ -1,0 +1,35 @@
+header {
+    background: #2d0f61;
+    background: -webkit-linear-gradient(right,#7c53c3,#2d0f61);
+    background: -o-linear-gradient(right,#7c53c3,#2d0f61);
+    background: -moz-linear-gradient(right,#7c53c3,#2d0f61);
+    background: -mos-linear-gradient(right,#7c53c3,#2d0f61);
+    background: linear-gradient(right,#7c53c3,#2d0f61);
+}
+.nav-menu > li.switch-system {
+    background: #492884;
+}
+.forecast-nav {
+    background: #2d0f61;
+}
+.forecast-nav-head {
+    background: #250b50;
+}
+.forecast-nav .forecast-submenu {
+    background: #1e0546;
+    border-bottom: 1px solid #170631;
+}
+.content_tab > ul > li > a:after {
+    border-bottom: 3px solid #613ca1;
+}
+.nav-menu>li>a:hover, 
+.nav-menu>li:hover>a, 
+.header-admin a:hover,
+.nav-menu li:hover, 
+.nav-menu > li ul li {
+    background-color: #563394;
+}
+.admin.menu-side-shrink .forecast-nav ul li a:hover,
+.left-nav-menu-div {
+    background: #502d8c;
+}
