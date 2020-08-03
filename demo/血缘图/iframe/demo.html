@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>血缘图展示demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../lib/ztree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../lib/ztree/js/jquery.ztree.exedit.js"></script>
+    <link rel="stylesheet" href="../lib/ztree/css/zTreeStyle.css" type="text/css">
+    <!-- import Vue before Element -->
+    <script src="../lib/vue/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="../lib/element-ui/index.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../lib/element-ui/index.css" />
+    <!-- 血缘图插件css -->
+    <link rel="stylesheet" href="../lib/gooflow/css/GooFlow.css"/>
+    <!-- 血缘图插件css end-->
+    <link href="../css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../css/menu.css" rel="stylesheet" />
+    <link href="../css/index.css" rel="stylesheet" />
+    <!-- 当前页面的新样式都在这里 -->
+    <style>
+        .app-main {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .app-main .el-tabs,
+        .app-main .el-tab-pane {
+            height: 100%;
+        }
+        .app-main .el-tabs__content {
+            overflow: auto;
+            position: relative;
+            height: calc(100% - 40px);
+        }
+        .app-main .el-tabs__header {
+            margin-bottom: 0;
+        }
+        .app-main .el-tabs__nav-wrap {
+            margin-bottom: 0px;
+        }
+        .app-main .el-tabs__nav-scroll {
+            border-bottom: 1px dashed #e7e7e7;
+        }
+        .app-main .el-tabs__nav-wrap::after {
+            display: none;
+        }
+        .app-left {
+            float: left;
+            width: 300px;
+            height: 100%;
+            padding: 15px;
+            border-right: 1px solid #e7e7e7;
+        }
+        .app-info {
+            position: relative;
+            height: 100%;
+            margin-left: 300px;
+            overflow: hidden;
+        }
+        .tag-item {
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+        }
+        .tag-item:hover .el-tag {
+            background-color: #fff2de;
+            border-color: #FFC107;
+            color: #F90;
+        }
+        .tag-item-txt {
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #e7e7e7;
+            border-radius: 4px;
+            background: #fff;
+            font-size: 13px;
+            box-shadow: 0 0 5px #ddd;
+            transform: translateY(-50%);
+            z-index: 9;
+            display: none;
+        }
+        .tag-item:hover .tag-item-txt {
+            display: block;
+        }
+        .tag-item-txt span {
+            display: inline-block;
+            width: 58px;
+            margin-right: 5px;
+            text-align: right;
+            color: #999;
+        }
+        .tag-item-txt:before,.tag-item-txt:after{
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: -13px;
+            margin-top: -6px;
+            border-top: 6px transparent dashed;
+            border-left: 6px transparent dashed;
+            border-bottom: 6px transparent dashed;
+            border-right: 6px #fff solid;
+        }
+        .tag-item-txt:before{
+            border-right: 6px #d6d6d6 solid;
+        }
+        .tag-item-txt:after{
+            left: -12px;
+            border-right: 6px #fff solid;
+        }
+        .t-header {
+            position: relative;
+            background: #fff;
+            margin-bottom: 0;
+            padding: 10px;
+            width: 260px;
+            height: 100%;
+            float: left;
+            border-right: 1px solid #e7e7e7;
+            transition: all .3s;
+            z-index: 10;
+        }
+        .app-info.active .t-header {
+            transform: translateX(-100%);
+        }
+        .app-info.active .t-header .fa-angle-double-left:before {
+            content: "\f101";
+        }
+        .app-info.active .flow-chart {
+            margin-left: 0;
+        }
+        .t-header .fci-btn {
+            left: inherit;
+            right: -25px;
+            border-radius: 0 50px 50px 0;
+            padding-left: 0px;
+            padding-right: 4px;
+        }
+        .t-header-box {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        .t-header-l {
+            color: #888;
+            line-height: 30px;
+        }
+        .t-header-l .search-box {
+            position: relative;
+            margin-bottom: 5px;
+        }
+        .t-header-l .search-box .el-input__inner {
+            padding-right: 30px;
+        }
+        .t-header-l .search-box .search-link {
+            position: absolute;
+            right: 0;
+            width: 30px;
+            text-align: center;
+            z-index: 9;
+        }
+        .t-header-r {
+            position: relative;
+        }
+        .t-header-r .el-tag {
+            display: block;
+            margin: 5px 0;
+        }
+        .tf-item {
+        }
+        .tag-fold {
+            background-color: #eaffeb;
+            border-color: #91e694;
+            color: #4CAF50;
+        }
+        .tag-fold i {
+            margin-right: 5px;
+        }
+
+        .ztree * { font-size: 13px;}
+
+        .flow-chart {
+            height: 100%;
+            background: #cc6f6f;
+            margin-left: 260px;
+            transition: all .3s;
+        }
+        .flow-chart-box {
+            width: 100%;
+            height: 100%;
+        }
+        .flow-chart-info {
+            position: absolute;
+            width: 450px;
+            height: 100%;
+            padding: 10px;
+            top: 0;
+            right: -450px;
+            background: #fff;
+            border-left: 1px solid #e7e7e7;
+            transition: all .3s;
+            z-index: 100;
+        }
+        .flow-chart-info.active {
+            right: 0;
+        }
+        .flow-chart-info.active .fa-angle-double-left:before {
+            content: "\f101";
+        }
+        .fci-btn {
+            position: absolute;
+            top: 50%;
+            left: -25px;
+            width: 25px;
+            height: 50px;
+            margin-top: -25px;
+            line-height: 50px;
+            background: #bbb;
+            text-align: center;
+            border-radius: 50px 0 0 50px;
+            font-size: 20px;
+            padding-left: 3px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="app-main" v-cloak>
+        <div class="app-left">
+            <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tab-pane label="全部" name="all">
+                    <div class="page-wrap dispatch">
+                        <ul id="tree" class="ztree" style="height: 100%; overflow:auto;"></ul>   
+                    </div>
+                </el-tab-pane>
+                <el-tab-pane label="正常" name="normal">正常</el-tab-pane>
+                <el-tab-pane label="异常" name="abnormal">异常</el-tab-pane>
+            </el-tabs>
+        </div>
+        <div class="app-info">
+            <div class="t-header clearfix">
+                <div class="t-header-box">
+                    <div class="t-header-l">
+                        <p>血缘图&nbsp;<span>10</span></p>
+                        <div class="search-box">
+                            <div class="nav-menu-input el-input el-input--small">
+                                <input type="text" autocomplete="off" placeholder="血缘图搜索" class="el-input__inner">
+                            </div> 
+                            <a href="javascript:;" class="search-link"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="t-header-r">
+                        <div class="demo-form-inline" style="font-size: 0;">
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">地面血缘图</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">环境血缘图</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">雷达血缘图</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">卫星血缘图</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">降水血缘图</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">降水血缘图-6</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">降水血缘图-7</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">降水血缘图-8</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">降水血缘图-9</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item">
+                                <span class="el-tag el-tag--light">降水血缘图-10</span>
+                                <div class="tag-item-txt">
+                                    <p><span>创建人:</span>张三</p>
+                                    <p><span>创建时间:</span>2020-08-03 10:00</p>
+                                    <p><span>URL:</span>http://0000</p>
+                                </div>
+                            </div>
+                            <div class="tag-item tf-item" style="display: none;">
+                                <span class="el-tag el-tag--light tag-fold"><i class="fa fa-caret-down"></i>展开全部</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fci-btn" id="fci-l"><i class="fa fa-angle-double-left"></i></div>
+            </div>
+            <div class="flow-chart">
+                <div class="flow-chart-box">
+                    <!-- 血缘图绘制 -->
+                    <div id="process" class="no-grid">
+                        <div class="explain-wrap">
+                            <p>血缘图绘制,监控数据流流向,快速定位功能点问题</p>
+                            <p>1、配置完信息请记得点击保存按钮退出</p>
+                            <p>2、鼠标悬浮图标可以拖动节点</p>
+                            <p>3、节点右边提供右击复制粘贴功能,快速配置</p>
+                        </div>
+                        <tr>
+                            <td colspan="2"></td>
+                        </tr>
+                    </div>
+                    <!-- 血缘图绘制 end-->
+                </div>
+                <div class="flow-chart-info">
+                    <div class="fci-btn" id="fci-r"><i class="fa fa-angle-double-left"></i></div>
+                    <div class="fci-box">
+                        <p>详细信息1</p>
+                        <p>详细信息2</p>
+                        <p>详细信息3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- 血缘图插件js -->
+    <script type="text/javascript" src="../lib/gooflow/js/GooFlow.js"></script>
+    <script type="text/javascript" src="../lib/gooflow/js/GooFunc.js"></script>
+    <script type="text/javascript" src="../lib/gooflow/js/process.js"></script>
+    <!-- 血缘图插件js end-->
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    activeName: 'all',
+                    isParent: true,
+                    form: {
+                        name: '气象行业',
+                        ms: '这是一个资料目录'
+                    },
+                    form2: {
+                        name: '气象行业',
+                        id: '',
+                        type: '',
+                        sq: '北京时',
+                        gz: '',
+                        ms: '',
+                        options: [{
+                          value: '选项1',
+                          label: '北京时'
+                        }, {
+                          value: '选项2',
+                          label: '世界时'
+                        }],
+                        options2: [{
+                          value: '选项1',
+                          label: '气象行业'
+                        }, {
+                          value: '选项2',
+                          label: '水利气象'
+                        }, {
+                          value: '选项3',
+                          label: '农业气象'
+                        }, {
+                          value: '选项4',
+                          label: '众创服务'
+                        }]
+                    }
+                }
+            },
+            mounted: function(){
+                var _this = this;
+                _this.$nextTick(() => {
+                })
+            },
+            methods: {
+                handleClick(tab, event) {
+                    console.log(tab, event);
+                }
+            }
+        })
+    </script>
+    <script>
+        var zTree;
+        var demoIframe;
+
+        var nodeRedJson  = {color:"red" ,"font-weight":"bold"};//红色字体颜色
+        var nodeBlackJson = {color:"#333" ,"font-weight":"normal"};//正常字体颜色
+
+        var setting = {
+            view: {
+                fontCss: setFontCss,
+                dblClickExpand: false,
+                showLine: true,
+                selectedMulti: false
+            },
+            edit: {
+                enable: true,
+                showRemoveBtn: false,
+                showRenameBtn: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: ""
+                }
+            },
+            callback: {
+                beforeClick: function(treeId, treeNode) {
+                    console.log(treeNode);
+                    // 判断是否存在子节点
+                    if (treeNode.isParent) {
+                        console.log("当前是目录节点"+treeNode);
+                        vm.isParent = true
+                        vm.form.name = treeNode.name;
+                        vm.form.ms = treeNode.dbname;
+                    } else {
+                        console.log("当前是资料类型子节点"+treeNode);
+                        vm.isParent = false;
+                        vm.form2.name = treeNode.name;
+                        vm.form2.nameEn = treeNode.nameEn;
+                        vm.form2.id = treeNode.id;
+                        vm.form2.type = treeNode.type;
+                    }
+                }
+            }
+        };
+
+        var zNodes = [{
+            id: 0,
+            pId: 0,
+            name: "全部",
+            dbname: '根目录',
+            num: 1,
+            open: true,
+            abnormal: true
+        },{
+            id: 1,
+            pId: 0,
+            name: "气象行业",
+            dbname: '这是一个资料目录',
+            num: 1,
+            open: true,
+            abnormal: false
+        }, {
+            id: 101,
+            pId: 1,
+            name: "历史审编资料",
+            nameEn: "LSSBZL",
+            type: "气象行业",
+            abnormal: false
+        }, {
+            id: 102,
+            pId: 1,
+            name: "地面资料",
+            nameEn: "DMZL",
+            type: "气象行业",
+            abnormal: false
+        }, {
+            id: 103,
+            pId: 1,
+            name: "高空资料",
+            nameEn: "GKZL",
+            type: "气象行业",
+            abnormal: false
+        }, {
+            id: 104,
+            pId: 1,
+            name: "海洋资料",
+            nameEn: "HYZL",
+            type: "气象行业",
+            abnormal: false
+        }, {
+            id: 105,
+            pId: 1,
+            name: "辐射资料",
+            nameEn: "FSZL",
+            type: "气象行业",
+            abnormal: false
+        }, {
+            id: 2,
+            pId: 0,
+            name: "水利气象",
+            dbname: '这是一个资料目录',
+            num: 2,
+            open: false,
+            abnormal: true
+        }, {
+            id: 201,
+            pId: 2,
+            name: "大气成分",
+            nameEn: "DQCF",
+            type: "水利气象",
+            abnormal: true
+        }, {
+            id: 2001,
+            pId: 201,
+            name: "大气成分1",
+            nameEn: "DQCF",
+            type: "大气成分",
+            abnormal: true
+        }, {
+            id: 2002,
+            pId: 201,
+            name: "大气成分2",
+            nameEn: "DQCF",
+            type: "大气成分",
+            abnormal: true
+        }, {
+            id: 2003,
+            pId: 201,
+            name: "大气成分3",
+            nameEn: "DQCF",
+            type: "大气成分",
+            abnormal: false
+        }, {
+            id: 202,
+            pId: 2,
+            name: "数值模式",
+            nameEn: "SZMS",
+            type: "水利气象",
+            abnormal: false
+        }, {
+            id: 2021,
+            pId: 202,
+            name: "数值模式1",
+            nameEn: "DQCF",
+            type: "数值模式",
+            abnormal: false
+        }, {
+            id: 2022,
+            pId: 202,
+            name: "数值模式2",
+            nameEn: "DQCF",
+            type: "大气成分",
+            abnormal: false
+        }, {
+            id: 2023,
+            pId: 202,
+            name: "数值模式3",
+            nameEn: "DQCF",
+            type: "数值模式",
+            abnormal: false
+        },  {
+            id: 203,
+            pId: 2,
+            name: "农气资料",
+            nameEn: "NQZL",
+            type: "水利气象",
+            abnormal: false
+        }, {
+            id: 204,
+            pId: 2,
+            name: "卫星资料",
+            nameEn: "WXZL",
+            type: "水利气象",
+            abnormal: false
+        }, {
+            id: 205,
+            pId: 2,
+            name: "科考资料",
+            nameEn: "KKZL",
+            type: "水利气象",
+            abnormal: false
+        }, {
+            id: 3,
+            pId: 0,
+            name: "农业气象",
+            dbname: '这是一个资料目录',
+            num: 3,
+            open: false,
+            abnormal: false
+        }, {
+            id: 301,
+            pId: 3,
+            name: "农气干旱监测",
+            nameEn: "NQGHJC",
+            type: "农业气象",
+            abnormal: false
+        }, {
+            id: 302,
+            pId: 3,
+            name: "农气情报预报",
+            nameEn: "NQQBYB",
+            type: "农业气象",
+            abnormal: false
+        }, {
+            id: 303,
+            pId: 3,
+            name: "农业气象专题",
+            nameEn: "NYQXZT",
+            type: "农业气象",
+            abnormal: false
+        }, {
+            id: 304,
+            pId: 3,
+            name: "农业灾害预报",
+            nameEn: "NYZHYB",
+            type: "农业气象",
+            abnormal: false
+        }, {
+            id: 305,
+            pId: 3,
+            name: "农用天气预报",
+            nameEn: "NYTQYB",
+            type: "农业气象",
+            abnormal: false
+        }, {
+            id: 306,
+            pId: 3,
+            name: "气候监测预测",
+            nameEn: "",
+            type: "农业气象",
+            abnormal: false,
+        }, {
+            id: 307,
+            pId: 3,
+            name: "台站农情调查",
+            nameEn: "TZNQDC",
+            type: "农业气象",
+            abnormal: false,
+        }, {
+            id: 4,
+            pId: 0,
+            name: "众创服务",
+            dbname: '这是一个资料目录',
+            num: 4,
+            open: false,
+            abnormal: false
+        }, {
+            id: 401,
+            pId: 4,
+            name: "元数据",
+            nameEn: "YSJ",
+            type: "众创服务",
+            abnormal: false
+        }, {
+            id: 402,
+            pId: 4,
+            name: "数据加工服务",
+            nameEn: "SJJGFW",
+            type: "众创服务",
+            abnormal: false
+        }, {
+            id: 403,
+            pId: 4,
+            name: "数据算法服务",
+            nameEn: "SJSFFW",
+            type: "众创服务",
+            abnormal: false
+        }, {
+            id: 404,
+            pId: 4,
+            name: "气象要素统计",
+            nameEn: "QXYSTJ",
+            type: "众创服务",
+            abnormal: false
+        }, {
+            id: 405,
+            pId: 4,
+            name: "业务监控",
+            nameEn: "YWJK",
+            type: "众创服务",
+            abnormal: false
+        }, {
+            id: 406,
+            pId: 4,
+            name: "省际共享",
+            nameEn: "SZGX",
+            type: "众创服务",
+            abnormal: false
+        }];
+
+        function setFontCss(treeId, treeNode) {
+            return treeNode.abnormal ? nodeRedJson : nodeBlackJson;  
+        };
+
+        $(function(){
+            $.fn.zTree.init($("#tree"), setting, zNodes);
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            zTree.selectNode(zTree.getNodeByParam("id", 1));
+
+            
+
+            $('#fci-r').on('click',function(){
+                $('.flow-chart-info').toggleClass('active');
+            });
+
+            $('#fci-l').on('click',function(){
+                $('.app-info').toggleClass('active');
+            }); 
+            
+            // 异常节点变红例子
+            $("#process_node_14").addClass('node-error');
+        })
+        
+
+    </script>
+</body>
+
+</html>
