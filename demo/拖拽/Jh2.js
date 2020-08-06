@@ -1,6 +1,6 @@
 /* 
 Jquery - portal.js 
-Jquery Portal layout可拖拽布局Copyright(C) Jh 2012.4.11
+Jquery Portal layout可拖拽布局Copyright(C) Jh 2020.08.06
 */
 
 var Jh = {   
@@ -11,15 +11,6 @@ var Jh = {
         tdCls2: "single",
         ulCls: "tag-list",
         layCls: "layout-list",
-        min: "min",
-        mintext: "收起",
-        max: "max",
-        maxtext: "展开",
-        close: "close",
-        closetext: "关闭",
-        refreshtext: "刷新",
-        refresh: "refresh",
-        _groupItemContent: "itemContent",
         _groupItemHead: "itemHeader",
         _groupWrapperClass: "groupWrapper",
         _groupItemClass: "groupItem"
@@ -27,34 +18,23 @@ var Jh = {
 };
 Jh.Layout = function(me) {
     var _left = "portal_l",
-    // * _center = "portal_m",
     _right = "portal_r";
     return me = {
         location: { //三列容器
             left: _left,
-            // * center: _center,
             right: _right
         },
         locationId: {
             left: "#" + _left,
-            // * center: "#" + _center,
             right: "#" + _right
         },
         layoutCss: {
             0 : "1:2",
             1 : "2:1",
-            // 2 : "1:2:1",
-            // 3 : "1:1:2",
-            // 4 : "2:1:1",
-            // 5 : "1:1:1"
         },
         layoutText: {
-            0 : "w250 w750",
-            1 : "w750 w250",
-            // 2 : "w250 w500 w250",
-            // 3 : "w250 w250 w500",
-            // 4 : "w500 w250 w250",
-            // 5 : "w250 w250 w250"
+            0 : "w250:w500",
+            1 : "w500:w250",
         }
     }
 } ();
@@ -67,12 +47,11 @@ Jh.Util = { //工具类
         }
         return str
     },
-    refresh: function() { //刷新3个布局
-        // * $("#" + Jh.Layout.left, "#" + Jh.Layout.center, "#" + Jh.Layout.right).sortable('refresh');
+    refresh: function() { //刷新2个布局
         $("#" + Jh.Layout.left, "#" + Jh.Layout.right).sortable('refresh');
     },
-    toBody: function(o) { //往Body添加对象
-        $("body").append(o);
+    toBody: function(o) { //往jh-main添加对象
+        $(".jh-main").append(o);
     }
 };
 Jh.fn = function(me) { //功能区
@@ -120,7 +99,7 @@ Jh.fn = function(me) { //功能区
  
         _createLayoutTr: function() { //创建布局
             var _td = me._createTd(Jh.Config.tdCls2),
-            _div = $("<div/>").addClass(Jh.Config.layCls).append(me._createA("1:3")).append(me._createA("3:1")).append(me._createA("1:1:2")).append(me._createA("1:2:1")).append(me._createA("2:1:1")).append("<a href='javascript:void(0);' class='active' rel='1:1:1'>默认</a>").appendTo(_td),
+            _div = $("<div/>").addClass(Jh.Config.layCls).append(me._createA("1:2")).append("<a href='javascript:void(0);' class='active' rel='2:1'>默认</a>").appendTo(_td),
             _tr = $("<tr>").append(me._createTd(Jh.Config.tdCls, "布局设置：")).append(_td);
  
             me._ele.layoutTd = _td;
@@ -130,17 +109,14 @@ Jh.fn = function(me) { //功能区
         _createModuleList: function(data) { //创建模块list
             var _ul = $("<ul/>").addClass(Jh.Config.ulCls);
             me._createLis(data.appL, _ul);
-            // *me._createLis(data.appM, _ul);
             me._createLis(data.appR, _ul);
             me._ele.ul = _ul;
             _ul.appendTo(me._ele.mtd);
         },
  
         _createActionButton: function() { //创建功能按钮
-            // * var _add = $("<a class='button b' href='#' >添加模块</a>");
             var _save = $("<a class='button b' href='#' >保存配置</a>");
-            me._ele.atd.append(_add).append(_save);
-            // * me._bindAdd(_add);
+            me._ele.atd.append(_save);
             me._bindSave(_save);
         },
  
@@ -169,47 +145,10 @@ Jh.fn = function(me) { //功能区
         _addPanel: function(o) {
             me.box.append(o);
         },
- 
-        /* _bindAdd: function(obj) { //添加模块
-            obj.click(function() {
-                var clicked = function() {
-                    var form = $(this).children('form'),
-                    name = form.children('#modulename').val(),
-                    key = form.children("#modulekey").val(),
-                    layout = form.children("input[name='modulelayout']:checked").val(),
-                    position;
-                    if (layout == 'left') {
-                        position = $("#" + Jh.Layout.location.left);
-                    } else if (layout == 'center') {
-                        position = $("#" + Jh.Layout.location.center);
-                    } else {
-                        position = $("#" + Jh.Layout.location.right);
-                    }
-                    me._ele.ul.append(me._createLi(key, name)); //添加功能标签
-                    position.append(Jh.Portal._createPortalOne(key, name)); //添加portal
-                    $.fallr('hide');
-                };
-                $.fallr('show', {
-                    buttons: {
-                        button1: {
-                            text: '确定',
-                            onclick: clicked
-                        },
-                        button2: {
-                            text: '取消'
-                        }
-                    },
-                    content: '<form style="margin-left:20px">' + '<p>模块名：</p><input type="text" size="15" id="modulename" />' + '<p>模块Code：</p><input type="text" size="15" id="modulekey" />' + '<p>模块位置：</p>左:<input type="radio" name="modulelayout" checked="checked" value="left"/>&nbsp&nbsp' + '中:<input type="radio" name="modulelayout" value="center"/>&nbsp&nbsp' + '右:<input type="radio" name="modulelayout" value="right"/>' + '</form>',
-                    icon: 'add',
-                    position: 'center'
-                });
-            });
- 
-        },*/
+
         _bindSave: function(obj) { //保存模块配置
             obj.click(function() {
                 var _l = $("#" + Jh.Layout.location.left).sortable('toArray'),
-                _m = $("#" + Jh.Layout.location.center).sortable('toArray'),
                 _r = $("#" + Jh.Layout.location.right).sortable('toArray'),
                 _a = $("." + Jh.Config.layCls + " a"),
                 _layout = "";
@@ -219,10 +158,10 @@ Jh.fn = function(me) { //功能区
                     }
                 });
  
-                if (_layout == "1:1:1") {
+                if (_layout == "2:1") {
                     _layout = "默认";
                 }
-                var baseConfig = "<p>left:[" + _l + "]</p><p>center:[" + _m + "]</p><p>right[" + _r + "]</p>" + "<p>当前布局:" + _layout + "</p>";
+                var baseConfig = "left:[" + _l + "];right[" + _r + "];当前布局:" + _layout;
                 // 当前设置布局
                 console.log(baseConfig);
  
@@ -266,6 +205,7 @@ Jh.fn = function(me) { //功能区
         },
  
         _ToLayout: function(v) { //刷新布局
+            console.log(v);
             var CssMode = Jh.Layout.layoutCss,
             //布局模式  
             CssText = Jh.Layout.layoutText,
@@ -282,9 +222,13 @@ Jh.fn = function(me) { //功能区
  
             $.each(ModulesId,
             function(s, sn) {
+                console.log("sn:"+sn);
                 var currentModule = $(sn),
                 cssName = CssText[CssTextId],
-                ary = cssName.split(/s+/); //得到当前布局css数组
+                ary = cssName.split(":"); //得到当前布局css数组
+                console.log(currentModule);
+                console.log("cssName:"+cssName);
+                console.log("当前布局css数组:"+ary);
                 switch (s) {
                 case "left":
                     s = 0;
@@ -292,16 +236,8 @@ Jh.fn = function(me) { //功能区
                 case "right":
                     s = 1;
                 }
-                // if (ary[s] == 'wnone') { //出现布局由3->2的变化 ,最右边栏目的内容搬到最左边
-                //     ModuleItems = currentModule.sortable('toArray'); //获取最新的的元素
-                //     $.each(ModuleItems,
-                //     function(m, mn) {
-                //         $("#" + Jh.Layout.location.left).append($("#" + mn)); 
-                //         //注意在两栏三栏间切换的时候 返回已经丢失的模块,而且只能够逐个添加元素，不可以一次添加多个
-                //     });
-                //     currentModule.empty(); //摧毁原有的元素，以免重复出现冲突
-                // }
-                currentModule.removeClass("w250 w750 w500 wnone").addClass(ary[s]); //增加css
+                console.log("----"+ary[s]);
+                currentModule.removeClass("w250 w500").addClass(ary[s]); //增加css
             });
  
         }
@@ -312,12 +248,10 @@ Jh.fn = function(me) { //功能区
 Jh.Portal = function(me) { //Portal对象
     var _box = "<div id='portal'></div>",
     _template = { //模板
-        l: "<div id='" + Jh.Layout.location.left + "' class='" + Jh.Config._groupWrapperClass + " w250'/>",
-        m: "<div id='" + Jh.Layout.location.center + "' class='" + Jh.Config._groupWrapperClass + " w250'/>",
+        l: "<div id='" + Jh.Layout.location.left + "' class='" + Jh.Config._groupWrapperClass + " w500'/>",
         r: "<div id='" + Jh.Layout.location.right + "' class='" + Jh.Config._groupWrapperClass + " w250'/>",
         portalWrap: "<div id='{key}' class='" + Jh.Config._groupItemClass + "'/>",
         itemHeader: "<div class='" + Jh.Config._groupItemHead + "'><h3>{name}</h3></div>",
-        itemContent: "<div class='" + Jh.Config._groupItemContent + "'/>"
     };
     return me = {
         init: function(op) { //初始化           
@@ -342,10 +276,8 @@ Jh.Portal = function(me) { //Portal对象
  
         _createModulesWrap: function() { //创建模块外层容器
             me._elements.m_l = $(_template.l);
-            me._elements.m_m = $(_template.m);
             me._elements.m_r = $(_template.r);
             me._addPanel(me._elements.m_l);
-            me._addPanel(me._elements.m_m);
             me._addPanel(me._elements.m_r);
         },
  
@@ -358,9 +290,6 @@ Jh.Portal = function(me) { //Portal对象
             switch (key) {
             case "appL":
                 mWrap = me._elements.m_l;
-                break;
-            case "appM":
-                mWrap = me._elements.m_m;
                 break;
             case "appR":
                 mWrap = me._elements.m_r;
@@ -377,11 +306,9 @@ Jh.Portal = function(me) { //Portal对象
         _createPortalOne: function(key, name) { //创建单个portal item
             var itemHeader = me._createItemHeader(name),
             //header
-            itemContent = me._createItemContent(),
-            //content
             portalWrap = $(Jh.Util.format(_template.portalWrap, {
                 "key": key
-            })).append(itemHeader).append(itemContent);
+            })).append(itemHeader);
  
             return portalWrap;
         },
@@ -389,88 +316,8 @@ Jh.Portal = function(me) { //Portal对象
         _createItemHeader: function(name) { //创建Head
             var _itemHeader = $(Jh.Util.format(_template.itemHeader, {
                 "name": name
-            })),
-            //格式化header         
-            _actionWrap = me._createDiv("action").hide().appendTo(_itemHeader); //创建一个div
-            me._createA(Jh.Config.refresh, Jh.Config.refreshtext, true).appendTo(_actionWrap);
-            me._createA(Jh.Config.min, Jh.Config.mintext, true).appendTo(_actionWrap);
-            me._createA(Jh.Config.max, Jh.Config.maxtext, false).appendTo(_actionWrap);
-            me._createA(Jh.Config.close, Jh.Config.closetext, true).appendTo(_actionWrap);
- 
-            _itemHeader.hover(function() { //滑过标题出现删除图标
-                $(this).find(".action").show();
-            },
-            function() {
-                $(this).find(".action").hide();
- 
-            });
+            }));
             return _itemHeader;
-        },
- 
-        _createItemContent: function() { //创建content
-            var _content = $(_template.itemContent);
-            $("<ul style='width:250px;'><li>xiaofanV587</li><li>xiaofanV587</li><li>xiaofanV587</li><li>xiaofanV587</li></ul>").appendTo(_content);
-            return _content;
-        },
- 
-        _createDiv: function(classname) {
-            var _div = $("<div/>").addClass(classname);
-            return _div;
-        },
- 
-        _createA: function(classname, title, isShow) { //创建A 
-            var _a = $("<a href='javascript:void(0);' class='" + classname + "' title='" + title + "'/>");
-            if (!isShow) {
-                _a.hide();
-            }
-            return _a;
-        },
- 
-        _eventMin: function() {
-            $("." + Jh.Config.min).live("click",
-            function() { //关闭面板
-                var _me = $(this);
-                var _groupItem = _me.parent().parent().parent();
-                _groupItem.find("." + Jh.Config._groupItemContent).hide();
-                _groupItem.find("." + Jh.Config.max).show();
-                _me.hide();
-            });
-        },
- 
-        _eventMax: function() {
-            $("." + Jh.Config.max).live("click",
-            function() { //展开面板
-                var _me = $(this),
-                _groupItem = _me.parent().parent().parent();
-                _groupItem.find("." + Jh.Config._groupItemContent).show();
-                _groupItem.find("." + Jh.Config.min).show();
-                _me.hide();
-            });
-        },
- 
-        _eventRemove: function() {
-            $("." + Jh.Config.close).live("click",
-            function() { //移除面板
-                var _this = $(this),
-                _p = _this.parent().parent().parent(); //得到当前父级面板                
-                _p.fadeOut('500',
-                function() { //500毫秒后移除
-                    var _this = $(this);
-                    var _id = _this.attr("id"); //得到模块id            
-                    var _a = $(".tag-list").find("a[rel='" + _id + "']");
-                    _this.remove();
-                    _a.parent().remove(); //移除功能列表中的li
-                });
-            });
-        },
- 
-        _eventRefresh: function() {
-            $("." + Jh.Config.refresh).live("click",
-            function() { //刷新
-                var _me = $(this),
-                _groupItem = _me.parent().parent().parent();
-                _groupItem.find("ul").empty().append("<li>刷新了</li>");
-            });
         },
  
         _eventSortable: function() { //绑定排序
@@ -483,10 +330,6 @@ Jh.Portal = function(me) { //Portal对象
  
         _bindEvent: function() { //绑定面板所有事件      
             me._eventSortable();
-            me._eventRefresh();
-            me._eventRemove();
-            me._eventMax();
-            me._eventMin();
         }
  
     };

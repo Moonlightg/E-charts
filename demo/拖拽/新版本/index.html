@@ -4,13 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>jquery 拖拽布局</title>
-<link href="css/main.css" rel="stylesheet" type="text/css" />
-<link href="css/jquery-fallr-1.3.css" rel="stylesheet" type="text/css" />
+<link href="css/jh-main-demo.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/ui/ui.core.min.js"></script>
 <script type="text/javascript" src="js/ui/ui.sortable.min.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="Jh2.js"></script>
+<script type="text/javascript" src="Jh.js"></script>
 <style type="text/css">
 	.jh-main {
 		width: 100%;
@@ -18,7 +17,7 @@
 	}
 </style>
 <script>
-$(document).ready(function () {	
+$(document).ready(function () {
 	var DATA = {
 		'appL' : {
 			'workbench':'工作台',
@@ -31,7 +30,7 @@ $(document).ready(function () {
 			'notice':'通知公告',
 			'studying':'档案编研'
 		}
-	}	
+	}
 	Jh.fn.init(DATA);
 	Jh.Portal.init(DATA);
 });
