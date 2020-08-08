@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>信宜市人民法院案件数据分析平台</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="lib/echarts/echarts.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script> 
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/layui/layui.all.js"></script> 
+    <link href="lib/layui/css/layui.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <style type="text/css">
+        .layout-wrap { padding: 0 7.5px;}
+        .lsc-content { height: calc(100% - 110px);}
+    </style>
+</head>
+<body>
+    <div class="lsc-main">
+        <header class="lsc-header">
+            <div class="lsc-header__left">
+                <div class="logo">
+                    <img src="images/court.png">
+                </div>
+                <span class="h2">信宜市人民法院案件数据分析平台</span>
+            </div>
+            <div class="lsc-header__right">
+                <ul class="menu-list">
+                    <li>
+                        <a href="index.html">概况</a>
+                    </li>
+                    <li class="on">
+                        <a href="javascript:;">民事主题</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">刑事主题</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">执行主题</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="lsc-crumbs">
+            <div style="flex: 1;
+    text-align: center;
+    padding-left: 51px;
+    font-size: 22px;
+    font-weight: 600;">
+                <!-- <span>民事主题</span>
+                <span style="margin-right:0;">》</span> -->
+                <span>交通事故</span>
+            </div>
+            <a href="civil.html">返回</a>
+        </div>
+        <div class="lsc-content">
+            <div class="col-h10" style="padding-bottom: 0;">
+                <div class="layout-wrap row">
+                    <div class="col-md-6">
+                        <div class="col-h6 flex flex-column">
+                            <div class="layout-tab">
+                                <div class="layout-tab-menu">
+                                    <a href="javascript:;">按年分析</a>
+                                    <a href="javascript:;">按季度分析</a>
+                                    <a href="javascript:;" class="active">按月分析</a>
+                                </div>
+                                <div class="date-wrap">
+                                    <div class="date-item"><span class="date-text">2019年</span><span class="layui-btn layui-btn-xs layui-btn-normal" id="openYear">更换年份</span></div>
+                                    <div class="date-item"><span class="date-text">2019年第二季度</span><span class="layui-btn layui-btn-xs layui-btn-normal" id="openQuarter">更换季度</span></div>
+                                    <div class="date-item on"><span class="date-text">2019年8月</span><span class="layui-btn layui-btn-xs layui-btn-normal" id="openMonth">更换月份</span></div>
+                                </div>
+                            </div>
+                            <div class="layout-tab-content">
+                                <div class="alltitle map-title">案件高发地区分布<div class="fr">总案件量：<span class="counter">3840</span>件</div></div>
+                                <div class="map-label-list">
+                                    <div class="mll-item"><span class="mll-item-label" style="background-color: #700897;"></span>2000</div>
+                                    <div class="mll-item"><span class="mll-item-label" style="background-color: #645dd3;"></span>1000</div>
+                                    <div class="mll-item"><span class="mll-item-label" style="background-color: #4d8cea;"></span>500</div>
+                                    <div class="mll-item"><span class="mll-item-label" style="background-color: #a1bbfb;"></span>100</div>
+                                    <div class="mll-item"><span class="mll-item-label" style="background-color: #b6c7ff;"></span>10</div>
+                                </div>
+                                <div class="lsc-layout map-wrap">
+                                    <div id="mapadd" style="width: 100%;height: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-h4">
+                            <div class="lsc-layout boxall flex flex-column">
+                                <div class="alltitle" style="text-align: left;">
+                                    月份交通事故量以及伤亡情况
+                                    <div class="alltitle-legend">
+                                        <p class="flex-ac">
+                                            <span class="legend-item" style="background:#fff43f;"></span>
+                                            <span style="color: #fff43f;">交通事故量</span>
+                                        </p>
+                                        <p class="flex-ac">
+                                            <span class="legend-item" style="background:#46a7f2;"></span>
+                                            <span style="color: #46a7f2;">轻伤量</span>
+                                        </p>
+                                        <p class="flex-ac">
+                                            <span class="legend-item" style="background:#9029b3;"></span>
+                                            <span style="color: #9029b3;">重伤量</span>
+                                        </p>
+                                        <p class="flex-ac">
+                                            <span class="legend-item" style="background:#f54938;"></span>
+                                            <span style="color: #f54938;">死亡量</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div id="echarts05" class="flex-auto"></div>
+                                <div class="boxfoot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-h5">
+                            <div class="lsc-layout boxall flex flex-column">
+                                <div class="alltitle">事故原因</div>
+                                <div id="echarts01" class="flex-auto"></div>
+                                <div class="boxfoot"></div>
+                            </div>
+                        </div>
+                        <div class="col-h5">
+                            <div class="lsc-layout boxall flex flex-column">
+                                <div class="alltitle">肇事车辆类型及伤亡情况分析</div>
+                                <div id="echarts04" class="flex-auto"></div>
+                                <div class="boxfoot"></div>
+                                <div class="alltitle-legend" style="display: block;top: 60px; right: 15px;line-height: 30px;">
+                                    <p class="flex-ac" style="margin-left: 10px;">
+                                        <span class="legend-item" style="background:#46a7f2;"></span>
+                                        <span style="color: #46a7f2;">轻伤量</span>
+                                    </p>
+                                    <p class="flex-ac">
+                                        <span class="legend-item" style="background:#9029b3;"></span>
+                                        <span style="color: #9029b3;">重伤量</span>
+                                    </p>
+                                    <p class="flex-ac">
+                                        <span class="legend-item" style="background:#f54938;"></span>
+                                        <span style="color: #f54938;">死亡量</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 更换月份 -->
+    <div id="month-form" style="display:none">
+        <form class="layui-form">
+            <div class="layui-form-item" style="margin-top: 62px;">
+                <div class="layui-inline" style="margin-left: 95px;">
+                    <label class="layui-form-label" style="width: 100px;">选择年月：</label>
+                    <div class="layui-input-inline" >
+                        <input type="text" class="layui-input" id="test3" placeholder="YYYY-MM">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- 更换季度 -->
+    <div id="quarter-form" style="display:none">
+        <form class="layui-form">
+            <div class="layui-form-item" style="margin-top: 20px;">
+                <div class="layui-inline" >
+                    <label class="layui-form-label" style="width: 110px;">选择年份：</label>
+                    <div class="layui-input-inline" >
+                        <input type="text" class="layui-input" id="test4" placeholder="年份">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="width: 110px;">选择季度：</label>
+                    <div class="layui-input-block" lay-filter="hm2">
+                          <select name="hm2" id="hm2" lay-verify="required" >
+                          <option value="第一季度">第一季度</option>
+                          <option value="第二季度">第二季度</option>
+                          <option value="第三季度">第三季度</option>
+                          <option value="第四季度">第四季度</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- 更换年度 -->
+    <div id="year-form" style="display:none">
+        <form class="layui-form">
+            <div class="layui-form-item" style="margin-top: 62px;">
+                <div class="layui-inline" style="margin-left: 95px;">
+                    <label class="layui-form-label" style="width: 110px;">选择年份：</label>
+                    <div class="layui-input-inline" >
+                        <input type="text" class="layui-input" id="test5" placeholder="年份">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="./js/jquery.waypoints.min.js"></script>
+    <script src="./js/jquery.countup.min.js"></script>
+    <script src="./js/echarts-demo3.js"></script>
+    <script src="./map/xinyi.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.counter').countUp();
+        });
+
+        // 年度，季度，月度tab切换
+        $('.layout-tab-menu a').click(function(){
+            var index = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.date-wrap .date-item').eq(index).addClass('on').siblings().removeClass('on');
+        });
+
+        var month = '',
+            year = '2019',
+            quarter = '第二季度';
+        var $date_text = $('.date-text');
+
+        // 日期选择交互
+        layui.use(['layer','form', 'layedit', 'laydate'], function(){
+            var $ = layui.jquery
+            ,form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+            //年月选择器
+            laydate.render({
+                elem: '#test3'
+                ,type: 'month'
+                ,done: function(value, date){
+                    month = date.year + '年' + date.month + '月';
+                }
+            });
+            //年选择器
+            laydate.render({
+                elem: '#test4'
+                ,type: 'year'
+                ,done: function(value, date){
+                    year = date.year + '年' ;
+                }
+            });
+
+            laydate.render({
+                elem: '#test5'
+                ,type: 'year'
+                ,done: function(value, date){
+                    year = date.year + '年' ;
+                }
+            });
+
+            // 季度选中
+            form.on('select', function(data){
+              console.log(data.elem); //得到select原始DOM对象
+              console.log(data.value); //得到被选中的值]
+              quarter = data.value;
+              console.log(data.othis); //得到美化后的DOM对象
+            }); 
+
+            // 更换月份
+            $("#openMonth").on('click',function(){
+                var that = $(this);
+                layer.open({
+                    type:1,
+                    area:['500px','250px'],
+                    title: '更换月份'
+                    ,content: $("#month-form"),
+                    shade: 0,
+                    btn: ['确认', '关闭']
+                    ,btn1: function(index, layero){
+                        that.siblings(".date-text").html(month);
+                        // console.log("month:"+month);
+                        layer.closeAll();
+                    },
+                    btn2: function(index, layero){
+                        layer.closeAll();
+                    },
+                    cancel: function(layero,index){ 
+                        layer.closeAll();
+                    }
+                }); 
+            });
+
+            // 更换季度
+            $("#openQuarter").on('click',function(){
+                var that = $(this);
+                layer.open({
+                    type:1,
+                    area:['350px','380px'],
+                    title: '更换季度'
+                    ,content: $("#quarter-form"),
+                    shade: 0,
+                    btn: ['确认', '关闭'],
+                    success: function(layero, index){
+                        console.log(1);
+                        form.render('select');
+                    },btn1: function(index, layero){
+                        that.siblings(".date-text").html(year+quarter);
+                        // console.log("month:"+month);
+                        layer.closeAll();
+                    },
+                    btn2: function(index, layero){
+                        layer.closeAll();
+                    },
+                    cancel: function(layero,index){ 
+                        layer.closeAll();
+                    }
+                }); 
+            });
+
+            // 更换年份
+            $("#openYear").on('click',function(){
+                var that = $(this);
+                layer.open({
+                    type:1,
+                    area:['500px','250px'],
+                    title: '更换年度'
+                    ,content: $("#year-form"),
+                    shade: 0,
+                    btn: ['确认', '关闭'],
+                    success: function(layero, index){
+                        console.log(1);
+                        form.render('select');
+                    },btn1: function(index, layero){
+                        that.siblings(".date-text").html(year);
+                        // console.log("month:"+month);
+                        layer.closeAll();
+                    },
+                    btn2: function(index, layero){
+                        layer.closeAll();
+                    },
+                    cancel: function(layero,index){ 
+                        layer.closeAll();
+                    }
+                }); 
+            });
+        });
+    </script>
+</body>
+
+</html>
