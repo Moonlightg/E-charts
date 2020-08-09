@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+        <meta name="renderer" content="webkit"> 
+        <meta name="author" content="leslie"> 
+        <title>数据融合平台</title>
+        <meta name="keywords" content="数据融合系统"> 
+        <meta name="description" content="数据融合系统"> 
+        <link rel="icon" href="images/yicon.png"> 
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" type="text/css"> 
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="css/app-base.css" type="text/css">
+        <!--[if lt IE 9]>
+            <script src="js/html5shiv.js"></script>
+            <script src="js/respond.js"></script>
+        <![endif]-->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header class="tl-header box-shadow">
+            <div class="box">
+                <div class="header-brand">
+                    <a href="JavaScript:;" class="logo">
+                        <span class="logo-img"><img src="images/yicon.png" alt=""></span>
+                        顺德区市场智慧监管系统
+                    </a>
+                </div>
+                <ul class="header-nav fr">
+                    <li class="pc-n">
+                        <a href="javascript:;" class="nav-btn" onclick="showLogin()"><span>登录｜注册</span></a>
+                    </li>
+                    <li class="pc-n dropdown user-drop" style="display: none;">
+                        <a href="javascript:;">
+                            <span class="headface">
+                                <img src="images/user-icon.jpg" alt="Moonlight">
+                            </span>Admin
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="JavaScript:;">个人中心</a>
+                            </li>
+                            <li>
+                                <a href="JavaScript:;">线索</a>
+                            </li>
+                            <li>
+                                <a href="JavaScript:;">我的文档</a>
+                            </li>
+                            <li>
+                                <a href="JavaScript:;">编辑资料</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="JavaScript:;">退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="javascript:;" class="app-nav-icon"><i class="fa fa-bars"></i></a>
+                <div class="app-nav fr">
+                    <a href="javascript:;" class="app-nav-icon"><i class="fa fa-times"></i></a>
+                    <ul class="header-nav">
+                        <li class="app-drop">
+                            <a href="javascript:;">
+                                常用功能
+                                <i class="caret"></i>
+                            </a>
+                            <div class="dropdown-menu drop-box">
+                                <a href="mail-list.html" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-address-book-o"></i>
+                                    </div>
+                                    <span>通讯录</span>
+                                </a>
+                                <a href="javascript:;" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-pie-chart"></i>
+                                    </div>
+                                    <span>数据图表</span>
+                                </a>
+                                <a href="javascript:;" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-building"></i>
+                                    </div>
+                                    <span>查企业</span>
+                                </a>
+                                <a href="javascript:;" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-share-alt"></i>
+                                    </div>
+                                    <span>查线索</span>
+                                </a>
+                                <a href="javascript:;" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-area-chart"></i>
+                                    </div>
+                                    <span>数据资产</span>
+                                </a>
+                                <a href="data-standard.html" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-file"></i>
+                                    </div>
+                                    <span>数据标准</span>
+                                </a>
+                                <a href="javascript:;" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-bar-chart"></i>
+                                    </div>
+                                    <span>统计报表</span>
+                                </a>
+                                <a href="javascript:;" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-location-arrow"></i>
+                                    </div>
+                                    <span>定位服务</span>
+                                </a>
+                                <a href="javascript:;" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-paper-plane"></i>
+                                    </div>
+                                    <span>企业数据报送</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="app-drop">
+                            <a href="javascript:;">
+                                工具箱
+                                <i class="caret"></i>
+                            </a>
+                            <div class="dropdown-menu drop-box tool-box">
+                                <a href="gj-investigation.html" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-suitcase"></i>
+                                    </div>
+                                    <span>企业背景调查</span>
+                                </a>
+                                <a href="gj-licences.html" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-id-card-o"></i>
+                                    </div>
+                                    <span>经营许可证结果集查询</span>
+                                </a>
+                                <a href="gj-survey-stats.html" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-file-excel-o"></i>
+                                    </div>
+                                    <span>药品调查汇总</span>
+                                </a>
+                                <a href="gj-survey-details.html" class="drop-item">
+                                    <div class="drop-img">
+                                        <i class="fa fa-file-text-o"></i>
+                                    </div>
+                                    <span>药品调查明细</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="search-wrap">
+            <div class="box">
+                <div class="logo">
+                    数据融合
+                </div>
+                <div class="search-nav">
+                    <div class="search-nav-item active">查企业</div>
+                    <div class="search-nav-item">查线索</div>
+                    <div class="search-nav-item"><a href="statistics.html">数据资产</a></div>
+                </div>
+                <div class="search-form">
+                    <div class="input-group search-bar">
+                        <input id="searchbox" type="text" name="search" autocomplete=“off” placeholder="输入关键字进行搜索" value="" class="form-control search-input input-lg">
+                        <span class="input-group-btn search-item-o"><button type="button" class="btn btn-primary search-btn" onclick="goSearchList()">搜索</button></span>
+                    </div>
+                    <p class="hot-wrap company"> 
+                        <span class="hot-data"> 
+                            <span class="hot-label">热搜：</span>
+                            <a href="javascript:;" target="_blank">伦教艺文钟</a> 
+                            <a href="javascript:;" target="_blank">潘棣明小食店</a> 
+                            <a href="javascript:;" target="_blank">大牛网络</a> 
+                            <a href="search-record.html" target="_blank">历史搜索></a> 
+                        </span> 
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 首页功能菜单集合 -->
+        <div class="drop-wrap">
+            <div class="box">
+                <div class="drop-menu">
+                    <p class="title">常用功能</p>
+                    <div class="new-drop">
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-pie-chart"></i>
+                            </div>
+                            <span>数据图表</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-building"></i>
+                            </div>
+                            <span>查企业</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-share-alt"></i>
+                            </div>
+                            <span>查线索</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-area-chart"></i>
+                            </div>
+                            <span>数据一览表</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-file"></i>
+                            </div>
+                            <span>数据标准</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-bar-chart"></i>
+                            </div>
+                            <span>统计报表</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-location-arrow"></i>
+                            </div>
+                            <span>定位服务</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-paper-plane"></i>
+                            </div>
+                            <span>企业数据报送</span>
+                        </a>
+                    </div>
+                 </div>
+                 <div class="drop-menu">
+                    <p class="title">工具箱</p>
+                    <div class="new-drop">
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-suitcase"></i>
+                            </div>
+                            <span>背景调查</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-id-card-o"></i>
+                            </div>
+                            <span>经营许可证结果集查询</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-file-excel-o"></i>
+                            </div>
+                            <span>药品调查汇总</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-file-text-o"></i>
+                            </div>
+                            <span>药品调查明细</span>
+                        </a>
+                    </div>
+                 </div>
+                 <div class="drop-menu">
+                    <p class="title">个人中心</p>
+                    <div class="new-drop">
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <span>我的信息</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-file-text-o"></i>
+                            </div>
+                            <span>我的线索</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-file-text-o"></i>
+                            </div>
+                            <span>关注线索</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                            <span>我的反馈</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-weixin"></i>
+                            </div>
+                            <span>微信绑定</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-unlock-alt"></i>
+                            </div>
+                            <span>重置密码</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-address-book-o"></i>
+                            </div>
+                            <span>通讯录</span>
+                        </a>
+                    </div>
+                 </div>
+                 <div class="drop-menu">
+                    <p class="title">联系我们</p>
+                    <div class="new-drop">
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <span>联系我们</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-commenting-o"></i>
+                            </div>
+                            <span>系统反馈</span>
+                        </a>
+                        <a href="javascript:;" class="drop-item">
+                            <div class="drop-img">
+                                <i class="fa fa-copyright"></i>
+                            </div>
+                            <span>版本信息</span>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+         <!-- 首页功能菜单集合 END-->
+        
+        <footer class="tl-footer">
+            <div class="box clearfix">
+                <div class="qr-code">
+                    <div class="qr-code-item">
+                        <img src="images/qrcode.png" alt="">
+                        <span>微信公众号</span>
+                    </div>
+                </div>
+                <div class="footer-l">
+                    <p>客服电话：400-000-0000</p>
+                    <p>工作时间: 周一至周五 9:00-17:30</p>
+                    <p>客服邮箱：kf@shujuronghe.com</p>
+                    <p>微信公众号：sjrh888</p>
+                    <p>地址：广东省佛山市顺德区</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade login-modal" id="loginModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog login-modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body login-wrap">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="login-left">
+                            <div class="logo">
+                                <span class="logo-img"><img src="images/yicon.png" alt=""></span>
+                                数据融合平台
+                            </div>
+                            <div class="code">
+                                <img src="images/qrcode.png" class="border" alt="">
+                            </div>
+                            <p>扫描二维码，关注微信公众号，随时查</p>
+                        </div>
+                        <div class="login-info">
+                            <div class="lp-head clearfix">
+                                <div class="login-tab active"> 
+                                    <a href="javascript:;">登录</a> 
+                                </div>
+                                <div class="login-tab"> 
+                                    <a href="javascript:;">注册</a> 
+                                </div>
+                            </div>
+                            <div class="lp-body">
+                                <!-- 登录 -->
+                                <div class="lp-item active">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control is-invalid" id="" aria-describedby="emailHelp" placeholder="邮箱" required>
+                                            <div class="invalid-feedback">用户名或密码错误</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control is-invalid" id="" placeholder="密码" required>
+                                            <div class="invalid-feedback">用户名或密码错误</div>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1">记住我</label>
+                                            <a href="javascript:;" class="text-primary fr">忘记密码？</a>
+                                        </div>
+                                        <div class="lp-item-btn">
+                                            <button type="submit" class="btn btn-primary btn-block btn-success" >登录</button><!-- onclick="go()" -->
+                                        </div>
+                                        <div class="m-t-md">
+                                            <div class="text-center text-gray m-b font-12">第三方账号登录</div>
+                                            <div class="text-center">
+                                                <a href="binding-wechat.html" class="btn-wx"></a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                 <!-- 注册 -->
+                                <div class="lp-item">
+                                    <form id="signForm">
+                                        <div class="form-group">
+                                            <input id="name" type="text" name="name" value="" required="required" autocomplete="name" autofocus="autofocus" class="form-control is-invalid" placeholder="姓名">
+                                            <div class="invalid-feedback">请输入姓名</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="email" type="email" name="email" value="" required="required" autocomplete="email" class="form-control is-invalid" placeholder="邮箱">
+                                            <div class="invalid-feedback">请输入邮箱</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="password" type="password" name="password" required="required" autocomplete="new-password" class="form-control is-invalid" placeholder="密码">
+                                            <div class="invalid-feedback">请输入密码</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="password-confirm" type="password" name="password_confirmation" required="required" autocomplete="new-password" class="form-control is-invalid" placeholder="确认密码">
+                                            <div class="invalid-feedback">输入密码不一致</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-inline">
+                                                <input id="captcha" name="captcha" required="required" class="form-control" placeholder="验证码"> 
+                                                <img src="https://sd.eeeshequ.com/captcha/flat?pkvWJdir" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码" class="thumbnail captcha ml-3 ">
+                                            </div>
+                                        </div>
+                                        <div class="lp-item-btn">
+                                            <button type="submit" class="btn btn-primary btn-block">注册</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 微信登录绑定账号密码 -->
+                        <div class="login-info wechat-login" id="wechat-binding" style="display: none;">
+                            <div class="lp-head clearfix">
+                                <div class="login-tab active"> 
+                                    <a href="javascript:;">账号绑定</a> 
+                                </div>
+                            </div>
+                            <div class="lp-body">
+                                <div class="lp-item active">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="" aria-describedby="emailHelp" placeholder="账号">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" id="" placeholder="密码">
+                                        </div>
+                                        <div class="lp-item-btn">
+                                            <button type="button" class="btn btn-primary btn-block" onclick="go()">绑定</button>
+                                        </div>
+                                    </form>
+                                </div>   
+                            </div> 
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    
+    <script src="js/common.js"></script>
+    <script src="js/message.js"></script>
+    <script>
+        $(function(){
+            $('.btn-success').on('click',function(){
+                $.message({
+                    message:' 权限不足',    //提示信息
+                    duration:'3000',       //显示时间（默认：5s）
+                    type:'error',           //显示类型，包括4种：success.error,info,warning 默认info
+                    showClose:false,       //显示关闭按钮（默认：否）
+                    center:false,           //页面竖直居中（默认：否）
+                    //onClose:function,      //点击关闭回调函数
+                });
+            })
+        });
+        function showLogin() {
+            $('#loginModal').modal('show');
+        }
+        function go() {
+            $("#signForm").submit();
+            window.location.href="index-2.html";
+        }
+        function goSearchList() {
+            var pid = $('.search-nav').find('.active').index();
+            console.log("pid:"+pid);
+            if (pid == 0) {
+                window.location.href="search-list.html";
+            } else if (pid == 1) {
+                window.location.href="clue-list.html";
+            } else {
+                window.location.href="data-list.html";
+            }
+        }
+
+        // 模拟微信绑定
+        function showBinding() {
+            $('.login-info').hide().siblings('#wechat-binding').show();
+        } 
+    </script>
+</html>

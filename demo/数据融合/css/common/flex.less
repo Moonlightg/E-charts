@@ -1,0 +1,107 @@
+/*
+ * flex.less
+ * v1.1.0 MIT License
+ * Copyright (c) 2020.02.06 Moonlight, Inc.
+ *
+*/
+
+// flex 布局
+.display {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+.box_orient{
+  /* UC 浏览器 使用flex-direction: column;的时候需要加上*/
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+}
+
+.flex_direction(@direction: row) {
+  -webkit-flex-direction: @direction;
+  -moz-flex-direction: @direction;
+  -ms-flex-direction: @direction;
+  -o-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.flex(@value: 1) {
+  -webkit-box-flex: @value;
+  -moz-box-flex: @value;
+  -webkit-flex: @value @value auto;
+  -ms-flex: @value @value auto;
+  flex: @value @value auto;
+}
+
+.flex_initial(@value: initial) {
+  -webkit-box-flex: @value;
+  -moz-box-flex: @value;
+  -webkit-flex: @value;
+  -ms-flex: @value;
+  flex: @value;
+}
+
+.align_items_center {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.align_items(@content) {
+  -webkit-box-align: @content;
+  -moz-box-align: @content;
+  -ms-flex-align: @content;
+  -webkit-align-items: ~'flex-@{content}';
+  align-items: ~'flex-@{content}';
+}
+
+.justify_content_center {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.justify_content(@content) {
+  -webkit-box-pack: @content;
+  -moz-box-pack: @content;
+  -ms-flex-pack: @content;
+  -webkit-justify-content: ~'flex-@{content}';
+  justify-content: ~'flex-@{content}';
+}
+
+.justify_content_space_between {
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.flex_flow {
+  flex-flow: wrap;
+  -ms-flex-flow: wrap; //IE10
+}
+
+// flex-start | flex-end | center | space-between | space-around | stretch
+.align-content(@align: stretch) {
+  -webkit-align-content: @align;
+  -moz-align-content: @align;
+  -ms-align-content: @align;
+  align-content: @align;
+}
+
+// auto | flex-start | flex-end | center | baseline | stretch
+.align_self(@align: auto) {
+  -webkit-align-self: @align;
+  -moz-align-self: @align;
+  -ms-align-self: @align;
+  align-self: @align;
+}

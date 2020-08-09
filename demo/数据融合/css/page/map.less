@@ -1,0 +1,144 @@
+.map-wrap {
+    position: relative;
+    width: 100%;
+    height: ~'calc(100% - 56px)';
+}
+.map-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 45px;
+}
+.map-item { width: 100%; height: 100%; } 
+.map-box { 
+    position: relative;
+    width: 100%; 
+    height: 100%; 
+    margin: 0; 
+}
+.map-wrap .screen-wrap {
+    position: relative;
+    background: #fff;
+    z-index: 99;
+}
+.map-wrap .screen-wrap .layer-head {
+    padding: 15px 0;
+}
+.mod-about {
+    background: rgba(255, 255, 255, 0.95);
+    left: 0;
+    top: 0px;
+    width: 300px;
+    height: 100%;
+    border-right-color: #e7e7e7;
+    border-right-width: 1px;
+    border-right-style: solid;
+    position: absolute;
+    z-index: 10;
+    transition: all .3s;
+    padding-bottom: 50px;
+    .hotel-list {
+        height: 100%;
+        overflow: auto;
+    }   
+    nav {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 10px;
+        border-top: 1px solid #e7e7e7;
+        .pagination {
+            margin-bottom: 0;
+        }
+    }
+}
+.map-wrap + .float-left + .tl-footer {
+    margin-top: 0;
+}
+.hotel-list li{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.hotel-list li p{
+    font-size: 12px;
+    color: #999
+}
+.hotel-list li p i {
+    margin-right: 5px;
+}
+.hotel-list li a {
+    color: #177de7;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 14px;
+}
+.hotel-list li:hover {
+        background: #f3f3f3;
+}
+.hotel-title {
+    padding: 15px;
+    background: #e3f1ff;
+    border-bottom: 1px solid #ccddef;
+    color: #177de7;
+}
+.hotel-title .num{
+    background: #177de7;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+}
+.phone-r {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #187ce7;
+    text-align: center;
+    line-height: 46px;
+    z-index: 11;
+    color: #fff;
+    border: 2px solid #71b5ff;
+}
+.map-screen {
+    position: relative;
+}
+.map-screen .layer-head {
+    position: absolute;
+    right: 0;
+    top: -42px;
+    border-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+    .map-wrap .screen-wrap .layer-head {
+        padding: 15px;
+    }
+    .mod-about {
+        width: 100%;
+        left: -100%;
+        padding-bottom: 70px;
+
+        &.active {
+            left: 0;
+        }
+    }
+    .phone-r {
+        display: block;
+    }
+    .map-wrap {
+        .screen-wrap.is-open {
+            padding-top: 50px;
+            position: fixed !important;
+            .breadcrumb-wrap {
+                display: none;
+            }
+        }
+    }
+}

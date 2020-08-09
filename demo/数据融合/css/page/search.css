@@ -1,0 +1,9 @@
+.search-wrap {
+  width: 100%;
+  height: 362px;
+  -webkit-background-size: 1000px 362px;
+  background-size: 1000px 362px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: #367bf9;
+}

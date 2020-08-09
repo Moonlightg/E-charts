@@ -1,0 +1,228 @@
+html, body {
+  height: 100%;
+  line-height: 1;
+  -webkit-overflow-scrolling: touch;  //ios滚动效果
+  -webkit-font-smoothing: antialiased;  //mac下字体
+  -webkit-tap-highlight-color: rgba(242, 137, 76, .05); //a标签点击高亮效果
+  font-size: 14px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, span, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-text-size-adjust: none;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+body{
+  font-family: @font-family;
+  letter-spacing: 0;
+  background: @body_bg;
+}
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ins, a {
+  text-decoration: none;
+  transition: color .1s ease;
+  -webkit-transition: color .1s ease;
+  color: @a_link;
+}
+a {
+  color: #3c4144;
+  text-decoration: none;
+}
+a:hover {
+  color: @a_link;
+  text-decoration: none;
+  outline: none;
+}
+
+/*--滚动条样式--*/
+// 去掉IE10 input叉叉
+input::-ms-clear {
+  display: none;
+}
+
+// 去掉input默认边框
+input[type=button], input[type=text], input[type=password],[type=tel],[type=number], [type=url], [type=email], button , textarea {
+  -webkit-appearance: none;
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  font-weight: normal;
+}
+
+// 去掉input=number箭头
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.fl{ float: left;}
+.fr{ float: right;}
+img{
+  vertical-align:middle;
+  border:0;
+}
+
+.box,
+.container {
+  width: 1250px;
+  padding-right: @margin;
+  padding-left:  @margin;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (max-width: 1250px) {
+  .box,
+  .container{
+    width: 100%;
+  }
+}
+.m-t-md {
+  margin-top: 25px;
+}
+// 圆角，默认是5px
+.border_radius(@radius:5px){
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+// 弹性滚动
+.touch(){
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+// 边框
+.border(@s:solid,@w:1px,@c:#e7e7e7){
+  border: @arguments;
+}
+// 溢出
+.flow(@voer:2){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @voer;
+  overflow: hidden;
+  line-height: 1.2;
+}
+// 阴影
+.box-shadow {
+  box-shadow: 0 2px 2px rgba(0,0,0,0.05), 0 1px 0 rgba(0,0,0,0.05);
+}
+
+// 三角形
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  transition: all .4s;
+}
+.text-gray {
+    color: #999;
+}
+.m-b {
+  margin-bottom: @margin;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  &> li {
+    &> a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: normal;
+      line-height: 1.42857143;
+      color: #333;
+      white-space: nowrap;
+    }
+  }
+}
+.divider {
+  height: 1px;
+  margin: 5px 0;
+  overflow: hidden;
+  background-color: #efefef;
+}
+.btn-wx{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    .png-image(login_icons);
+    background-size: 72px 96px;
+    background-position: -0px -0px;
+    &:hover {
+      background-position: -0px -24px;
+  }
+}
+.group-time {
+  display: inline-block;
+  margin-left: 10px;
+  input {
+    display: inline-block;
+    width: 150px;
+    margin: 0 10px;
+  }
+}
+.num {
+  margin-right: 15px;
+  margin-left: 5px;
+  color: #999;
+}
+.time {
+  color: #999;
+}
+.fs18{
+  font-size: @fs18;
+}
+.no-data {
+  display: inline-block;
+  width: 200px;
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+.p-r100 {
+  padding-right: 100px !important;
+}
+.pagination {
+  margin-bottom: 15px;
+}

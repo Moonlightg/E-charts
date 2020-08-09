@@ -1,0 +1,16 @@
+.jpg-image(@jpg_url){
+  	background-image: url('../images/@{jpg_url}.jpg');
+}
+.png-image(@png_url){
+  	background-image: url('../images/@{png_url}.png');
+}
+.png-bg(@bg_color, @bg_url, @bg_repeat){
+	background: @bg_color url('../images/@{bg_url}.png') @bg_repeat;
+}
+// 透明度兼容ie
+.opacity (@opacity:1) {
+    @opacityPercentage: @opacity * 100;
+    opacity: @opacity;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=(@{opacityPercentage}))"; 
+    filter: ~"alpha(opacity = (@{opacityPercentage}))";
+}

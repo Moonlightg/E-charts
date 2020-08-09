@@ -1,0 +1,126 @@
+.layer-box {
+    margin: @margin auto;
+    padding: 0;
+    border-radius: 5px;
+    background: #fff;
+}
+.layer-head,
+.layer-body {
+    padding: @margin;
+}
+.layer-head {
+    border-bottom: 1px solid #e7e7e7;
+    &.on {
+        .caret {
+            transform: rotate(180deg);
+        }
+    }
+}
+.layer-body {
+    .form-group {
+         .display;
+        .align_items_center;
+        &>label {
+            flex: 0 0 100px;
+        }
+    }
+}
+.layer-fc {
+    flex: 1;
+    .form-check-inline {
+        margin-right: 1rem;
+        margin-bottom: 3px;
+        margin-top: 3px;
+    }
+}
+.top-box {
+    padding: 0;
+    &+.layer-box {
+        margin-top: 0;
+    }
+}
+.link-button {
+    padding: 6px 10px;
+    background: #eef5ff;
+    border-radius: 3px;
+    color: #327af9;
+    i {
+        margin-right: 5px;
+    }
+    &:hover {
+        background: #327af9;
+        border-radius: 3px;
+        color: #eef5ff;
+    }
+}
+.firm-statistics {
+    .link-button {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .layer-box {
+        border-radius: 0;
+        margin: 8px auto;
+    }
+    .layer-body .form-group {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .layer-body .form-group label {
+        flex: 0;
+        &.col-form-label {
+            padding: 0;
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: #999;
+        }
+    }
+    .layer-fc{
+        font-size: 0;
+        margin-left: -5px;
+        margin-right: -5px;
+        label {
+            font-size:14px;
+        }
+        .form-check-inline {
+            position: relative;
+            display: inline-block;
+            padding-left: 0;
+            margin-right: .75rem;
+            display: inline-block;
+            margin: 5px;
+            font-size: 14px;
+            .form-check-input {
+                position: absolute;
+                opacity: 0;
+                &:checked + .form-check-label {
+                    background: #e7f8ff;
+                    color: #2196F3;
+                }
+            }
+            .form-check-label {
+                background: #efefef;
+                padding: 8px 10px;
+                border-radius: 3px;
+            }
+        }
+    }
+    .group-time {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .firm-statistics {
+        .link-button {
+            display: block;
+            margin-left: 0;
+            margin-top: 5px;
+        }
+    }
+    .layer-fc{ 
+        width: 100%;
+    }
+}
+

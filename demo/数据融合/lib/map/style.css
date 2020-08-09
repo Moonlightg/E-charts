@@ -1,0 +1,864 @@
+body {
+	height: 100%; position: relative; -ms-overflow-y: hidden; min-height: 600px; min-width: 900px;
+}
+html {
+	height: 100%; position: relative; -ms-overflow-y: hidden; min-height: 600px; min-width: 900px;
+}
+html {
+	-ms-overflow-x: auto;
+}
+.main-wrap {
+	height: 100%; position: relative;
+}
+.mr10 {
+	margin-right: 10px;
+}
+.mr20 {
+	margin-right: 20px;
+}
+.header {
+	background: url("../images/head_bg_left.jpg") no-repeat rgb(44, 154, 217); height: 70px;
+}
+.logo-wrap {
+	padding: 0px 0px 0px 12px; width: 290px; float: left;
+}
+.logo {
+	width: 289px; height: 70px;
+}
+.nav {
+	width: 70px; height: 70px; padding-right: 4px; float: right;
+}
+.nav-item {
+	width: 70px; height: 70px; text-align: center; float: left; cursor: pointer;
+}
+.nav-icon {
+	width: 70px; height: 46px; display: block;
+}
+.nav-tit {
+	color: rgb(255, 255, 255);
+}
+.addr-wrap {
+	padding: 27px 0px 0px 19px; width: 200px; float: left; position: relative; z-index: 750;
+}
+.addr-list {
+	background: rgb(44, 152, 214); padding: 10px; left: 29px; top: 45px; text-align: left; color: rgb(255, 255, 255); line-height: 20px; position: absolute; z-index: 750; cursor: pointer;
+}
+.addr-icon {
+	background: url("../images/head_pic_selected.png"); width: 14px; height: 14px; float: left;
+}
+.act-tit {
+	padding: 0px 18px 0px 7px; text-align: left; color: rgb(255, 255, 255); line-height: 14px; float: left; position: relative; cursor: pointer;
+}
+.sanjiao-icon {
+	background: url("../images/head_pic_dropdown.png"); top: 0px; width: 14px; height: 14px; right: 0px; position: absolute;
+}
+.turn {
+	background: url("../images/head_pic_dropup.png");
+}
+.mod-nav {
+	background: url("../images/leftbat_bg.jpg"); left: 0px; top: 0px; width: 55px; height: 100%; position: absolute; z-index: 11;
+}
+.lfnav-item {
+	height: 60px; cursor: pointer;
+}
+.mod-nav .active {
+	background-color: rgb(26, 79, 128);
+}
+.lfnav-icon {
+	height: 38px; display: block;
+}
+.lfnav-tit {
+	color: rgb(153, 153, 153); line-height: 12px;
+}
+.mod-nav .active .lfnav-tit {
+	color: rgb(255, 255, 255);
+}
+.mod-about {
+	background: rgba(255,255,255,0.5); left: -271px; top: 0px; width: 325px; height: 100%; border-right-color: rgb(160, 161, 163); border-right-width: 1px; border-right-style: solid; position: absolute; z-index: 10;
+}
+.sf-btn {
+	border-width: 1px; border-style: solid; border-color: rgb(160, 161, 163) rgb(160, 161, 163) rgb(160, 161, 163) rgb(255, 255, 255); border-image: none; top: 50%; width: 14px; height: 32px; right: -15px; padding-top: 24px; margin-top: -25px; position: absolute; z-index: 10; cursor: pointer; background-color: rgb(255, 255, 255);
+}
+.rotate img {
+	transform: rotate(180deg); -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg);
+}
+.mod-back {
+	background: url("../images/jiantou.png") no-repeat 14px 14px; padding: 0px 0px 0px 30px; height: 40px; text-align: left; color: rgb(153, 153, 153); line-height: 40px; cursor: pointer;
+}
+.mes-wrap {
+	background: rgb(235, 241, 251); padding: 17px 0px 15px 12px;
+}
+.mod-mes {
+	width: 208px; text-align: left; color: rgb(51, 133, 255); margin-right: 15px; border-right-color: rgb(177, 214, 240); border-right-width: 1px; border-right-style: dotted; float: left; -ms-word-break: break-all;
+}
+.mod-mes dt {
+	height: 28px; font-size: 14px; font-weight: 700;
+}
+.mod-mes .english-name {
+	font-size: 14px;
+}
+.mod-mes .unit-link {
+	color: rgb(51, 133, 255); text-decoration: underline;
+}
+.go-btn {
+	background: url("../images/go.png") no-repeat 10px 7px rgb(51, 133, 255); border-radius: 2px; width: 49px; height: 33px; color: rgb(255, 255, 255); line-height: 33px; padding-left: 27px; margin-top: 19px; float: left; cursor: pointer;
+}
+.mod-mes .mod-mes-tit {
+	font-size: 14px; font-weight: 700;
+}
+.mod-tool {
+	margin-top: 10px; border-bottom-color: rgb(219, 218, 223); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.tool-btn {
+	padding: 0px 0px 0px 16px; width: 204px; height: 18px; line-height: 18px; margin-bottom: 10px; border-right-color: rgb(238, 238, 238); border-right-width: 1px; border-right-style: solid; float: left; cursor: pointer;
+}
+.tool-btn li {
+	width: 47px; color: rgb(51, 133, 255); margin-right: 20px; float: left;
+}
+.tl-icon {
+	width: 15px; height: 15px; float: left;
+}
+.fj-icon {
+	background: url("../images/fj.png") no-repeat;
+}
+.fx-icon {
+	background: url("../images/fx.png") no-repeat;
+}
+.sc-icon {
+	background: url("../images/sc.png") no-repeat;
+}
+.start-wrap {
+	width: 83px; padding-top: 3px; float: right;
+}
+.start-wrap i {
+	width: 12px; float: left;
+}
+#favBtn a {
+	color: rgb(51, 133, 255);
+}
+#favBtn a:hover {
+	color: rgb(51, 133, 255);
+}
+.mod-pic {
+	padding: 5px; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.sum-tit {
+	background: url("../images/jian.png") no-repeat 15px 11px; padding: 5px 0px 0px 40px; height: 35px; text-align: left; line-height: 35px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.sum-wrap {
+	padding: 10px 10px 0px 16px; text-align: left; color: rgb(153, 153, 153); line-height: 18px;
+}
+.search-wrap {
+	position: relative;
+}
+.mod-search {
+	background: rgb(255, 255, 255); padding: 0px 14px 10px; border: 1px solid rgb(219, 218, 223); border-image: none; left: 0px; top: -1px; width: 295px; position: absolute; cursor: pointer;
+}
+.search-close {
+	top: 6px; right: 15px; color: rgb(142, 143, 145); line-height: 16px; font-size: 18px; font-weight: 700; position: absolute;
+}
+.zb-list {
+	line-height: 24px; margin-bottom: 7px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.zb-list li {
+	color: rgb(51, 133, 255); margin-right: 10px; float: left;
+}
+.search-inp {
+	border: 1px solid rgb(218, 218, 218); border-image: none; width: 243px; height: 20px; line-height: 20px; margin-right: 5px; float: left;
+}
+.search-btn {
+	background: rgb(44, 129, 255); width: 44px; height: 23px; text-align: center; color: rgb(255, 255, 255); line-height: 23px; float: left;
+}
+.share-tips {
+	height: 24px; text-align: left; line-height: 24px; margin-bottom: 7px; border-bottom-color: rgb(237, 237, 237); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.share-bar {
+	text-align: left; margin-top: 6px; position: relative;
+}
+.share-item {
+	cursor: pointer;
+}
+.bshare-custom {
+	left: 50px; top: -3px; position: absolute;
+}
+.fav-suc {
+	background: rgb(255, 255, 255); left: 0px; top: 0px; width: 325px; height: 33px; line-height: 33px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid; position: absolute; z-index: 11;
+}
+.mod-map {
+	height: 100%; position: relative;
+}
+#flatMapDiv {
+	background: rgb(204, 204, 204); height: 100%; position: absolute; z-index: 9;
+}
+.pop-box {
+	background: rgb(255, 255, 255); border-radius: 3px; border: 1px solid rgb(0, 154, 254); border-image: none; left: 0px; width: 348px; position: relative;
+}
+.sanjiao {
+	background: url("../images/sanjiao.png"); top: 32px; width: 34px; height: 40px; right: -34px; position: absolute;
+}
+.pop-close {
+	top: 0px; right: 10px; color: rgb(255, 255, 255); padding-right: 10px; font-size: 18px; font-weight: 700; float: right; position: absolute; cursor: pointer;
+}
+.pop-tit {
+	background: rgb(0, 154, 254); height: 33px; text-align: left; color: rgb(255, 255, 255); line-height: 33px; padding-left: 10px; font-size: 14px; font-weight: 700; opacity: 0.8;
+}
+.back-pic-list {
+	padding-left: 20px; font-size: 12px; font-weight: 200; cursor: pointer;
+}
+.pop-pic {
+	padding: 10px; position: relative;
+}
+.mod-info {
+	padding: 0px 0px 5px 12px; text-align: left; color: rgb(51, 51, 51); line-height: 18px;
+}
+.pop-school .pop-pic {
+	width: 360px; float: left;
+}
+.pop-bg {
+	background: rgb(204, 204, 204); height: 250px;
+}
+.mod-school-info {
+	padding: 10px 0px; width: 190px; text-align: left; color: rgb(102, 102, 102); line-height: 20px; float: left;
+}
+.h210 {
+	height: 210px; -ms-overflow-y: auto;
+}
+.ps-btn-wrap {
+	margin-top: 10px;
+}
+.ps-btn {
+	background: rgb(51, 133, 255); border-radius: 3px; width: 70px; height: 28px; text-align: center; color: rgb(255, 255, 255); line-height: 28px; float: left; cursor: pointer;
+}
+.pop-school {
+	left: 50%; top: 70px; width: 580px; margin-left: -290px; position: absolute;
+}
+.pop-four-con {
+	padding: 10px 15px;
+}
+.pop-con {
+	padding: 10px;
+}
+.pfive-pic {
+	background: rgb(204, 204, 204); width: 100px; height: 100px; margin-right: 10px; float: left;
+}
+.pfive-sum {
+	text-align: left; color: rgb(102, 102, 102);
+}
+.pop-eight {
+	left: 50%; top: 100px; width: 900px; margin-left: -450px; position: absolute;
+}
+.pop-seven {
+	left: 50%; top: 100px; width: 900px; margin-left: -450px; position: absolute;
+}
+.pop-six {
+	left: 50%; top: 100px; width: 900px; margin-left: -450px; position: absolute;
+}
+.pop-eight {
+	top: 70px;
+}
+.slider_box {
+	margin: 0px auto; width: 550px; height: 400px; overflow: hidden; position: relative;
+}
+.mask {
+	background: rgb(0, 0, 0); left: 0px; width: 100%; height: 100px; bottom: 0px; overflow: hidden; border-top-color: rgb(221, 221, 221); border-top-width: 2px; border-top-style: solid; position: absolute; z-index: 1; opacity: 0.7;
+}
+.silder_con {
+	overflow: hidden; position: absolute;
+}
+.silder_panel {
+	width: 550px; height: 400px; overflow: hidden; float: left; position: relative;
+}
+.silder_panel img {
+	width: 550px; height: 400px; overflow: hidden; display: block;
+}
+.silder_nav li {
+	margin: 2px; padding: 0px; border: 1px solid rgb(255, 255, 255); border-image: none; float: left; display: inline; position: relative;
+}
+.silder_nav li.current {
+	margin: 0px 4px; border: 3px solid rgb(122, 207, 57); border-image: none;
+}
+.silder_nav img {
+	width: 100px; height: 48px; overflow: hidden; display: block;
+}
+.silder_nav li {
+	width: 100px; height: 48px; overflow: hidden; display: block;
+}
+.slider_box a.prev {
+	background-position: left 0px; left: 0px;
+}
+.slider_box a.next {
+	background-position: right 0px; right: 0px;
+}
+.silder_intro {
+	left: 30px; width: 400px; height: 100px; bottom: 0px; color: rgb(255, 255, 255); overflow: hidden; padding-left: 20px; position: absolute; z-index: 9;
+}
+.silder_intro h3 {
+	margin: 10px 0px 5px; height: 22px; line-height: 22px; font-size: 20px; font-weight: 700;
+}
+.silder_intro p {
+	line-height: 20px; font-size: 12px;
+}
+.dec {
+	height: 100px; right: 10px; bottom: -10px; overflow: hidden; float: right; position: absolute; z-index: 9;
+}
+.dec li {
+	margin-top: 20px; float: left; display: inline; cursor: pointer;
+}
+.tap-header {
+	height: 30px; border-top-color: rgb(218, 218, 218); border-bottom-color: rgb(218, 218, 218); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.tap-item {
+	width: 110px; height: 30px; text-align: center; color: rgb(102, 102, 102); line-height: 30px; padding-left: 4px; border-right-color: rgb(218, 218, 218); border-right-width: 1px; border-right-style: solid; float: left; position: relative; z-index: 10; cursor: pointer;
+}
+.rt-item {
+	width: 111px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;
+}
+.red-icon {
+	background: url("../images/red.png") no-repeat 28px 11px;
+}
+.green-icon {
+	background: url("../images/green.png") no-repeat 23px 10px;
+}
+.blue-icon {
+	background: url("../images/blue.png") no-repeat 19px 8px;
+}
+.cur-item {
+	color: rgb(0, 154, 254); border-bottom-color: rgb(255, 255, 255); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.tabItem {
+	display: none;
+}
+.tap-content {
+	padding: 10px;
+}
+.qd-inp {
+	border: 1px solid rgb(179, 179, 179); border-image: none; width: 160px; height: 21px; line-height: 21px; margin-right: 3px; float: left;
+}
+.qd-btn {
+	background: rgb(0, 154, 254); width: 48px; height: 23px; text-align: center; color: rgb(255, 255, 255); line-height: 23px; float: left;
+}
+.cx-btn {
+	background: rgb(0, 154, 254); width: 48px; height: 23px; text-align: center; color: rgb(255, 255, 255); line-height: 23px; float: right;
+}
+.gray-btn {
+	background: rgb(204, 204, 204);
+}
+.life-list ul {
+	margin: 0px 15px 15px; height: 195px; overflow: auto; max-height: 195px;
+}
+.life-list ul li {
+	text-align: center; float: left; cursor: pointer;
+}
+.life-list dl dd {
+	width: 77px; height: 59px; padding-top: 15px;
+}
+.life-list dl dt {
+	height: 16px;
+}
+.rb-box {
+	background: rgb(255, 255, 255); border: 1px solid rgb(0, 154, 254); border-image: none; width: 160px; height: 120px; right: 0px; bottom: 0px; position: absolute; z-index: 20; cursor: pointer;
+}
+.map-btn {
+	width: 144px; height: 48px; color: rgb(255, 255, 255); overflow: hidden; position: absolute; z-index: 11; cursor: pointer;
+}
+.map-pic {
+	background: rgb(255, 255, 255); padding: 2px; border: 1px solid rgb(204, 204, 204); border-image: none; float: left; position: relative;
+}
+.map-tit {
+	background: rgba(0, 0, 0, 0.6); left: 2px; width: 42px; height: 18px; text-align: center; bottom: 2px; color: rgb(255, 255, 255); line-height: 18px; position: absolute; cursor: pointer;
+}
+.sj-btn {
+	top: 150px;
+}
+.map-tit-active {
+	background: rgba(44, 152, 241, 1);
+}
+.nav-tab .row {
+	height: 30px; text-align: left; line-height: 30px; padding-left: 30px;
+}
+.nav-tab .link {
+	color: rgb(27, 16, 241); text-decoration: none; cursor: pointer;
+}
+.line-box {
+	background: rgb(238, 238, 238); margin: 0px auto; padding: 10px; border-radius: 3px; width: 270px; text-align: left; color: rgb(51, 51, 51); line-height: 25px;
+}
+.liketips1 {
+	margin-top: 40px; -ms-overflow-y: auto;
+}
+.liketips2 {
+	-ms-overflow-y: auto;
+}
+.table-border {
+	width: 100%;
+}
+.table-border tr {
+	border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.input_04 {
+	background: url("/resource/imap/skin1.0/school/images_blue/input_02.png"); width: 303px; height: 33px; margin-left: 4px; float: left; display: block;
+}
+.input_04 input {
+	background: 0px 0px; margin: 3px 4px; border: currentColor; border-image: none; width: 295px; height: 26px; font-family: "ËÎÌו"; font-size: 12px; display: block;
+}
+.ktzy_input {
+	background: url("/resource/imap/skin1.0/school/images_blue/ktzy_input.png"); width: 303px; height: 103px; margin-left: 62px; display: block;
+}
+.ktzy_input textarea {
+	background: 0px 0px; margin: 3px 4px; padding: 5px 3px; border: currentColor; border-image: none; width: 295px; height: 96px; line-height: 18px; overflow: hidden; font-family: "ËÎÌו"; font-size: 12px; display: block;
+}
+.ktzy_i_l {
+	background: url("/resource/imap/skin1.0/school/images_blue/ktzy_input_l.png") no-repeat; width: 5px; height: 33px; float: left;
+}
+.ktzy_i_m {
+	background: url("/resource/imap/skin1.0/school/images_blue/ktzy_input_m.png") repeat-x; padding: 0px 8px; width: auto; height: 33px; line-height: 33px; float: left;
+}
+.ktzy_i_r {
+	background: url("/resource/imap/skin1.0/school/images_blue/ktzy_input_r.png") no-repeat; width: 5px; height: 33px; float: left;
+}
+.ktzy_input01 {
+	width: auto; font-size: 12px;
+}
+.ktzy_input_sj {
+	background: url("/resource/imap/skin1.0/school/images_blue/ktzy_input_sj.png") no-repeat; width: 11px; height: 7px;
+}
+.ktzy_select {
+	width: auto; margin-left: 8px; float: left;
+}
+.ktzy_lap {
+	background: url("/resource/imap/skin1.0/school/images_blue/ktzy_lap.png"); margin: 37px 0px 0px 30px; border: 1px solid rgb(163, 164, 164); border-image: none; width: auto; height: auto; float: left; position: absolute;
+}
+.ktzy_lap_list li {
+	padding: 5px; color: rgb(54, 54, 54); font-size: 12px;
+}
+.ktzy_myselect {
+	border-radius: 5px; border: 1px solid rgb(163, 164, 164); border-image: none; font-size: 12px; position: absolute; z-index: 10001; -ms-overflow-x: hidden; -ms-overflow-y: auto; max-height: 200px; max-width: 200px; box-shadow: 0px 1px 2px rgba(0,0,0,0.15); background-color: rgb(255, 255, 255);
+}
+.ktzy_myselect a {
+	padding: 0.5em; display: block;
+}
+.ktzy_myselect a:hover {
+	background: url("/resource/imap/skin1.0/school/images_blue/box_top_m.png") repeat-x; color: rgb(255, 255, 255);
+}
+.xydh_input02 {
+	height: 33px; padding-top: 5px; margin-left: -5px; float: left; display: inline-block;
+}
+.miniclose {
+	width: 14px; height: 14px; line-height: 1px; overflow: hidden; font-size: 1px; float: right;
+}
+.miniclose a {
+	background: url("../images/dev/vrClose.gif") no-repeat 0px -20px; width: 14px; height: 14px; display: block;
+}
+.miniclose a:hover {
+	background: url("../images/dev/vrClose.gif") no-repeat 0px 2px;
+}
+.vr {
+	left: 300px; top: 100px; width: 704px; height: auto; text-align: left; position: absolute; z-index: 2147483647;
+}
+.vetitle {
+	width: 420px; height: 30px; line-height: 30px; overflow: hidden; font-size: 14px; font-weight: 700; float: left;
+}
+.vrh1 {
+	background: url("../images/dev/vrbg1.gif") no-repeat 0px 0px; padding: 10px 10px 0px; height: 30px; line-height: 30px; display: block;
+}
+.vrbm {
+	background: url("../images/dev/vrbg1.gif") no-repeat left bottom; height: 3px; line-height: 3px; overflow: hidden; clear: both; font-size: 1px;
+}
+.vrmain {
+	background: url("../images/dev/vrbg2.gif") repeat-y 0px 0px; padding: 0px 2px; width: 700px; height: 392px; text-align: center; overflow: hidden; clear: both;
+}
+.t-searchWrap {
+	left: 476px; top: 24px; width: 166px; position: absolute; z-index: 100;
+}
+.t-searchInp {
+	outline: 0px; border: 1px solid rgb(38, 131, 184); border-image: none; width: 160px; height: 25px; color: rgb(51, 51, 51); padding-left: 5px;
+}
+.t-searchBtn {
+	background: rgb(47, 164, 231); top: 1px; width: 40px; height: 25px; text-align: center; right: 0px; color: rgb(255, 255, 255); line-height: 25px; border-left-color: rgb(38, 131, 184); border-left-width: 1px; border-left-style: solid; display: block; position: absolute;
+}
+.new-line {
+	margin: 0px auto 20px; width: 290px; text-align: left; padding-top: 10px;
+}
+.new-line span {
+	width: 50px; text-align: center; margin-right: 15px; border-bottom-color: rgb(255, 255, 255); border-bottom-width: 3px; border-bottom-style: solid; display: inline-block; cursor: pointer;
+}
+.new-line .cur {
+	color: rgb(65, 150, 197); border-bottom-color: rgb(65, 150, 197); border-bottom-width: 3px; border-bottom-style: solid;
+}
+.navigation .life .new-line-list {
+	background: rgb(225, 244, 255); margin: 0px auto; padding: 15px; border-radius: 5px; border: 1px solid rgb(170, 213, 237); border-image: none; width: 260px; text-align: left; color: rgb(51, 51, 51); line-height: 24px;
+}
+.t-sel {
+	width: 178px; height: 25px;
+}
+.t-bus-line {
+	text-align: left; color: rgb(102, 102, 102); line-height: 24px; padding-left: 30px; margin-top: 15px; -ms-overflow-x: hidden; -ms-overflow-y: auto; max-height: 300px;
+}
+.t-blue {
+	color: rgb(51, 102, 204);
+}
+.station {
+	background: url("../images/bus-line.png") repeat-y left top; left: 6px; padding-left: 10px; position: relative;
+}
+.t-qd {
+	background: url("../images/bus-start-icon.png") no-repeat 3px 4px rgb(255, 255, 255); padding-left: 20px;
+}
+.t-zd {
+	background: url("../images/bus-start-icon.png") no-repeat 3px 4px rgb(255, 255, 255); padding-left: 20px;
+}
+.hotspotBtn {
+	background: rgb(47, 164, 231); border: 1px solid rgb(38, 131, 184); border-image: none; left: 650px; top: 24px; width: 68px; height: 25px; text-align: center; color: rgb(255, 255, 255); line-height: 25px; display: block; position: absolute; z-index: 100;
+}
+.up-icon {
+	background: url("../images/up.png") no-repeat 0% 0% / 28px 20px; left: 50%; width: 28px; height: 20px; bottom: 10px; margin-left: -19px; position: absolute; cursor: pointer;
+}
+.right_tool_box {
+	width: 18px;
+}
+.right_tool {
+	background: rgb(234, 234, 234); border: 1px solid rgb(153, 153, 153); border-image: none; width: 16px; height: 16px; float: left;
+}
+.r_show {
+	background: rgb(234, 234, 234); border: 1px solid rgb(153, 153, 153); border-image: none; width: 16px; height: 160px; margin-top: 5px; float: left;
+}
+.r1 {
+	background: url("/resource/imap/skin1.0/school/images_blue/right_tool_bg.png");
+}
+.r2 {
+	background: url("/resource/imap/skin1.0/school/images_blue/right_tool_bg.png");
+}
+.r3 {
+	background: url("/resource/imap/skin1.0/school/images_blue/right_tool_bg.png");
+}
+.r4 {
+	background: url("/resource/imap/skin1.0/school/images_blue/right_tool_bg.png");
+}
+.r5 {
+	background: url("/resource/imap/skin1.0/school/images_blue/right_tool_bg.png");
+}
+.r6 {
+	background: url("/resource/imap/skin1.0/school/images_blue/right_tool_bg.png");
+}
+.r_normal {
+	background: url("/resource/imap/skin1.0/school/images_blue/right_tool_bg.png");
+}
+.r1 {
+	padding: 4px 0px;
+}
+.r2 {
+	padding: 4px 0px;
+}
+.r3 {
+	padding: 4px 0px;
+}
+.r4 {
+	padding: 4px 0px;
+}
+.r5 {
+	padding: 4px 0px;
+}
+.r6 {
+	padding: 4px 0px;
+}
+.r1 a {
+	width: 16px; height: 16px; display: block;
+}
+.r2 a {
+	width: 16px; height: 16px; display: block;
+}
+.r3 a {
+	width: 16px; height: 16px; display: block;
+}
+.r4 a {
+	width: 16px; height: 16px; display: block;
+}
+.r5 a {
+	width: 16px; height: 16px; display: block;
+}
+.r6 a {
+	width: 16px; height: 16px; display: block;
+}
+.r_normal a {
+	width: 16px; height: 16px; display: block;
+}
+.r_normal {
+	background-position: 0px 3px;
+}
+.r1 {
+	background-position: -1px -12px;
+}
+.r2 {
+	background-position: 0px -32px;
+}
+.r3 {
+	background-position: 0px -55px;
+}
+.r4 {
+	background-position: 0px -74px;
+}
+.r5 {
+	background-position: 0px -95px;
+}
+.r6 {
+	background-position: 0px -114px;
+}
+.fx-wrap {
+	left: 0px; top: 0px; position: absolute;
+}
+.fx-list li {
+	padding: 5px 0px 0px 20px; line-height: 30px; font-size: 14px;
+}
+.dailog {
+	top: 0px; width: 100%; height: 100%; position: fixed; z-index: 999999; opacity: 0.6; background-color: rgb(0, 0, 0);
+}
+.alert-kuang {
+	left: 50%; top: 50%; width: 400px; height: 150px; margin-top: -75px; margin-left: -200px; position: absolute; z-index: 9999999; background-color: rgb(255, 255, 255);
+}
+.secend-li-content {
+	margin: 5% 10%; width: 80%;
+}
+.first-li-head {
+	height: 40px; color: rgb(255, 255, 255); line-height: 40px;
+}
+.font-color {
+	background-color: rgb(44, 152, 214);
+}
+.three-li-btn {
+	text-align: center;
+}
+.three-li-btn span {
+	margin: 0px 5px; padding: 8px 20px; border-radius: 5px; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(44, 152, 214);
+}
+.entity-unit {
+	padding: 0px 15px; text-align: left; margin-bottom: 15px;
+}
+.entity-unit li {
+	height: 25px; line-height: 25px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dashed;
+}
+.cr-text {
+	height: 100%; line-height: 30px; float: left; display: inline-block;
+}
+.cr-img {
+	width: 40px; height: 30px; line-height: 30px; float: left; display: inline-block;
+}
+.pop-content {
+	height: 100%;
+}
+.pub-tabContent {
+	height: 100%;
+}
+.scenery-content {
+	height: 100%;
+}
+.over-view {
+	width: 40px; height: 40px; right: 15px; bottom: 15px; position: absolute;
+}
+.olControlLOverviewMapContainer {
+	right: 0px; bottom: 20px; position: absolute; background-color: rgb(255, 255, 255);
+}
+.olControlLOverviewMapElement {
+	padding-top: 5px !important; padding-left: 5px !important; border-top-color: rgb(153, 153, 153) !important; border-left-color: rgb(153, 153, 153) !important; border-top-width: 1px !important; border-left-width: 1px !important; border-top-style: solid !important; border-left-style: solid !important;
+}
+.olControlLOverviewMapMinimizeButton {
+	right: 0px; bottom: 0px !important;
+}
+.olControlLOverviewMapMaximizeButton {
+	right: 0px; bottom: 0px !important;
+}
+.olControlLOverviewMapExtentRectangle {
+	background: rgb(216, 221, 233); border: 2px ridge rgb(0, 0, 255) !important; border-image: none !important; overflow: hidden; cursor: move; opacity: 0.5; -moz-opacity: .5;
+}
+.olControlLOverviewMapRectReplacement {
+	background-position: center; overflow: hidden; cursor: move; background-image: url("overview_replacement.gif"); background-repeat: no-repeat;
+}
+.olMap {
+	margin: 0px !important; padding: 0px !important; border: 1px solid rgb(153, 153, 153); border-image: none; z-index: 0; cursor: default;
+}
+.modalDiv {
+	padding: 0px; border-radius: 5px 5px 0px 0px; border: currentColor; border-image: none; left: 50%; top: 50%; width: 600px; height: 400px; overflow: hidden; margin-top: -200px; margin-left: -300px; display: none; position: fixed; z-index: 1011; opacity: 1; background-color: rgb(240, 245, 248);
+}
+.div_overlay {
+	left: 0px; top: 0px; width: 100%; height: 100%; display: none; position: fixed; z-index: 1010; opacity: 0.8; background-color: rgb(0, 0, 0); -moz-opacity: .8;
+}
+.lr_head {
+	background: rgb(69, 142, 224); border-radius: 5px 5px 0px 0px; height: 30px;
+}
+.lr_title {
+	width: 100px; height: 100%; color: rgb(255, 255, 255); line-height: 30px; font-size: 15px; float: left;
+}
+.lr_closeBtn {
+	width: 30px; height: 30px; color: rgb(255, 255, 255); line-height: 30px; font-size: 15px; margin-right: 7px; float: right;
+}
+.lr_closeBtn:hover {
+	line-height: 31px; background-color: rgb(71, 47, 240);
+}
+.lr_tab {
+	width: 100%; height: 30px;
+}
+.lr_tab_item {
+	border: 1px solid rgb(0, 0, 0); border-image: none; width: 118px; height: 30px; color: rgb(255, 255, 255); line-height: 30px; float: left; background-color: rgb(170, 170, 170);
+}
+.cur_tab_item {
+	background-color: rgb(69, 142, 224);
+}
+.lr_content {
+	margin: 10px 0px; padding: 0px 10px; height: 340px;
+}
+.lr_content_left {
+	width: 210px; height: 100%; text-align: left; float: left;
+}
+.lr_content_right {
+	width: 370px; height: 100%; float: right;
+}
+.showType {
+	width: 100%; height: 150px; background-color: rgb(204, 204, 204);
+}
+.curSymbolImg {
+	width: 100%; height: 150px; margin-top: 10px;
+}
+.curSymbolImg img {
+	width: 100%; height: 150px;
+}
+.panel-body {
+	border-color: transparent; font: 400 12px/1.5 ËÎÌו, arial, sans-serif; height: 310px; font-size-adjust: none; font-stretch: normal;
+}
+.layerAttr-table td {
+	border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.layerAttr-table tr {
+	border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.layerAttr-table tr {
+	height: 30px;
+}
+.optBtn {
+	margin-top: 10px;
+}
+.layer-table {
+	margin: 0px auto; padding: 0px;
+}
+.layer-table td {
+	border-collapse: separate; border-spacing: 10px;
+}
+.layer-table tr {
+	border-collapse: separate; border-spacing: 10px;
+}
+.lr_tdVal {
+	width: 100px;
+}
+.lr_tdVal_val {
+	width: 200px;
+}
+.lr_tdTotal {
+	width: 50px;
+}
+.lr_td_field {
+	text-align: left;
+}
+.more_screen {
+	top: 360px; width: 20px; height: 15px; right: 33px; display: block; position: absolute; cursor: pointer;
+}
+.more_screen img {
+	top: 0px; width: 100%; height: 100%; position: absolute; z-index: 11;
+}
+.more-screen-wrap {
+	height: 100%; padding-left: 55px; z-index: 749;
+}
+.imap {
+	width: 49.6%; height: 100%; float: left; box-sizing: border-box;
+}
+.tmap {
+	width: 49.6%; height: 100%; float: left; box-sizing: border-box;
+}
+.imap-item {
+	width: 100%; height: 25%; box-sizing: border-box;
+}
+.imap-item-left {
+	border: 3px solid rgb(255, 255, 255); border-image: none; width: 50%; height: 100%; float: left; box-sizing: border-box;
+}
+.imap-item-right {
+	border: 3px solid rgb(255, 255, 255); border-image: none; width: 50%; height: 100%; float: left; box-sizing: border-box;
+}
+.lab {
+	background: rgb(204, 204, 204); width: 5px; height: 100%; margin-left: 2px; float: left; cursor: e-resize;
+}
+.back-maplist {
+	background: rgb(44, 154, 217); top: 15px; width: 45px; height: 30px; right: 15px; color: rgb(255, 255, 255); line-height: 30px; display: none; position: absolute; z-index: 750; cursor: pointer;
+}
+.imap-item-right {
+	border-right-color: currentColor; border-right-width: 0px; border-right-style: none;
+}
+.anchorBL {
+	display: none;
+}
+.task-process {
+	width: 100%;
+}
+.task-wrap {
+	width: 100%;
+}
+.tt-list-group {
+	width: 100%;
+}
+.tw-tabs {
+	width: 100%;
+}
+.tt-item {
+	width: 100%; height: 50px; color: rgb(44, 154, 217); line-height: 50px; font-size: 18px; border-bottom-color: rgb(44, 154, 217); border-bottom-width: 1px; border-bottom-style: solid; cursor: pointer;
+}
+.tt-item-active {
+	color: rgb(255, 255, 255);
+}
+.task-process {
+	position: relative;
+}
+.tc-model {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 60px; height: 50px; display: block;
+}
+.tn-num {
+	margin: 0px auto 10px; border-radius: 50%; border: 1px solid rgb(204, 204, 204); border-image: none; width: 30px; height: 30px; text-align: center; line-height: 30px; display: block;
+}
+.input-reset-style {
+	width: 100% !important; height: 100% !important; text-align: center; line-height: 50px;
+}
+.drag-input-wrap {
+	padding: 5px; width: 100px; height: 50px; min-height: 50px; min-width: 100px; box-sizing: border-box;
+}
+.note-title {
+	top: -45px; width: 150px; line-height: 15px; margin-left: -60px; display: block; position: relative;
+}
+.tt-item-active {
+	color: rgb(255, 255, 255); background-color: rgb(44, 154, 217);
+}
+.task-wrap {
+	height: 100%; -ms-overflow-y: auto;
+}
+.guidNodeDetail {
+	left: 0px; top: 0px; width: 100%; height: 100%; display: none; position: absolute;
+}
+.node-item-detail {
+	display: inline-block;
+}
+.node-item-option {
+	display: inline-block;
+}
+.nodeDetailWrap .list-group-item {
+	text-align: left; line-height: 35px; min-height: 35px;
+}
+.nodeDetailWrap {
+	background: rgb(255, 255, 255); padding: 0px 15px; top: 150px; width: 500px; height: 355px; right: 150px; position: absolute; z-index: 50; -ms-overflow-x: hidden; -ms-overflow-y: auto;
+}
+.node-header {
+	width: 100%; height: 35px; line-height: 35px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.nh-name {
+	left: 15px; position: absolute;
+}
+.node-close {
+	background: url("../images/dev/vrClose.gif") no-repeat 0px -12px; width: 35px; height: 35px; right: 15px; position: absolute;
+}
+.node-mark {
+	background: rgb(0, 0, 0); left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: 10; opacity: 0.5;
+}
+.label-radius {
+	border-radius: 50%; width: 30px; height: 30px;
+}

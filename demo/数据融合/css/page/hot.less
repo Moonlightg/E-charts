@@ -1,0 +1,223 @@
+.hot-wrap {
+    position: relative;
+    .display;
+    .align_items_center;
+    font-size: 15px;
+    margin-top: 6px;
+    padding-right: 70px;
+    line-height: 1.8;
+    .hot-label {
+        display: block;
+        float: left;
+        color: #fff;
+        line-height: 37px;
+    }
+    .search-more-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #FFEB3B;
+    }
+}
+.hot-data {
+    float: left;
+    max-width: 630px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    a {
+        display: block;
+        float: left;
+        padding: 5px 10px;
+        font-size: 15px;
+        color: #BCEAFF;
+        &:hover {
+            color: white;
+        }
+    }
+}
+.card-content {
+    .display;
+    .justify_content_space_between;
+    .flex_flow;
+}
+.firm-head {
+    height: 50px;
+    padding: 0 15px;
+    .display;
+    .align_items_center;
+    .justify_content_space_between;
+}
+.firm-statistics {
+    span {
+        color: #FF5722;
+        padding: 0 5px;
+    }
+}
+.firm-info {
+    .display;
+    .align_items_center;
+    .brand-name {
+        margin-left: 12px;
+        .flex_initial(1);
+        .brand {
+            .title {
+                padding: 0;
+                font-size: 16px;
+                color: #333;
+            }
+        }
+    }
+}
+.firm-item {
+    position: relative;
+    width: 564px;
+    width: ~'-webkit-calc(50% - 10px)';
+    width: ~'calc(50% - 10px)';
+    height: 152px;
+    padding: 16px 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    .display;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &:hover {
+        -webkit-box-shadow: 0 0 10px 0 hsla(237,9%,47%,.15);
+        box-shadow: 0 0 10px 0 hsla(237,9%,47%,.15);
+    }
+}
+.firm-avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    .avatar-logo {
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.firm-tags {
+    margin-top: 5px;
+}
+.tags-item {
+    height: 22px;
+    font-weight: normal;
+    display: inline-block;
+    line-height: 14px;
+    font-size: 12px;
+    padding: 4px 8px 4px 8px;
+    margin-right: 4px;
+    border-radius: 2px;
+    &.text-primary {
+        color: @brand_primary;
+        background: #E7F4FF;
+        border: 1px solid #E7F4FF;
+    }
+    &.text-green {
+        color: #009944;
+        background: #fff;
+        border: 1px solid #009944;
+    }
+}
+.firm-detail {
+    margin-top: 15px;
+}
+.detail-list {
+    width: 100%;
+    .display;
+    p {
+        span {
+            font-size: 13px;
+            color: #939fb8;
+            &.value {
+                font-size: 13px;
+                color: #333;
+                margin-left: 6px;
+                &.t-blue {
+                    color: @brand_primary;
+                }
+            }
+        }
+        &+p{
+            margin-left: 15px;
+        }
+    }
+    &+.detail-list {
+        margin-top: 8px;
+    }
+}
+
+.hphoneview {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 0px;
+    right: 0px;
+    .png-image(hphoneview);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    transition: opacity .3s;
+}
+@media screen and (max-width: 768px) {
+    .hot-wrap {
+        align-items: flex-start;
+        padding: 0;
+        margin-top: 10px;
+        font-size: 13px;
+        padding-right: 70px;
+        .hot-label {
+            padding: 0;
+            line-height: 23px;
+        }
+    }
+    .hot-data a {
+        padding: 0px 5px;
+        font-size: 13px;
+    }
+    .firm-head {
+        height: auto;
+        align-items: center;
+        padding-top: 15px;
+        label {
+            display: none;
+        }
+        .form-control {
+            margin-left: 0;
+            width: 110px;
+        }
+    }
+    .firm-statistics {
+        margin-bottom: 0;
+    }
+    .firm-item {
+        height: auto;
+        width: 100%;
+    }
+    .detail-list {
+        &.zt-p {
+            text-align: center;
+            p {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                span.value {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

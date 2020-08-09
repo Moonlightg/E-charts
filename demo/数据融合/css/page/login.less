@@ -1,0 +1,142 @@
+
+.login-modal-dialog {
+    width: 400px;
+    max-width: 100%;
+    margin-top: 100px;
+}
+.login-wrap {
+    padding-left: 0;
+}
+.login-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    .display;
+    .justify_content_center;
+    .align_items_center;
+    flex-direction: column;
+    border-right: 1px solid #f9f9f9;
+    display:none;
+    .logo {
+        .display;
+        .justify_content_center;
+        .align_items_center;
+        margin-bottom: 25px;
+        font-size: 18px;
+    }
+    .logo-img {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    .code {
+        width: 150px;
+        margin: 10px auto;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    p{
+        margin-top: 10px;
+        color: #999;
+    }
+}
+.login-info {
+    padding: 0 30px 30px;
+    min-height: 330px;
+    .form-control {
+        height: 40px;
+    }
+}
+.login-tab {
+    float: left;
+    width: 50%;
+    text-align: center;
+    &>a{
+        padding-bottom: 10px;
+        font-size: 18px;
+        color: #999;
+        cursor: pointer;
+    }
+    &.active a{
+        color: @brand_primary;
+        border-bottom: solid 2px @brand_primary;
+    }
+}
+.lp-head {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 0px 50px;
+}
+.lp-item {
+    display: none;
+    padding: 15px 5px;
+    &.active{
+        display: block;
+    }
+    .form-check-input {
+        position: absolute;
+        margin-top: .1rem;
+    }
+    .thumbnail {
+        width: 120px;
+    }
+}
+.lp-item-btn {
+    padding-top: 15px;
+    .btn {
+        padding: .59rem .75rem;
+    }
+}
+.wechat-login {
+    max-width: 400px;
+    margin: 0 auto;
+    .login-tab {
+        float: inherit;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login-modal {
+        width: 100%;
+        height: 100%;
+        .login-modal-dialog {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+            margin: 0;
+        }
+        .modal-content {
+            border: none;
+            height: 100%;
+            border-radius: 0;
+        }
+        .login-wrap {
+            padding-left: 1rem;
+        }
+        .login-left {
+            display: none;
+        }
+        .form-inline .form-control {
+            display: inline-block;
+            width: auto;
+            vertical-align: middle;
+        }
+        .lp-item .thumbnail {
+            width: 90px;
+        }
+        .wechat-login {
+            max-width: 100%;
+        }
+    }
+}

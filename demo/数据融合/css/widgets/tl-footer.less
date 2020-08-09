@@ -1,0 +1,56 @@
+/*
+ * tl-footer.less
+ * v1.2.0 MIT License
+ * http://www.moonlight313.cn
+ * Copyright (c) 2018.10.19 Moonlight, Inc.
+ *
+*/
+
+.tl-footer {
+    padding: 70px 0;
+    margin-top: 15px;
+    background: #f5f5f5;
+}
+.footer-l {
+    float: left;
+    p {
+        font-size: 14px;
+        line-height: 25px;
+        color: #707071;
+    }
+}
+.qr-code {
+    float: right;
+}
+.qr-code-item{
+    float: right;
+    text-align: center;
+    margin-left: 50px;
+    color: #707071;
+    img {
+        width: 125px;
+        display: block;
+        margin-bottom: 6px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .tl-footer {
+        display:none;
+        padding: 30px 0;
+    }
+    .footer-l {
+        float: inherit;
+    }
+    .qr-code {
+        float: inherit;
+        margin-bottom: 25px;
+    }
+    .qr-code-item {
+        float: inherit;
+        text-align: center;
+        margin-left: 0;
+        img {
+            margin: 0 auto 6px;
+        }
+    }
+}
