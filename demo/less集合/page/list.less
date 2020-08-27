@@ -1,0 +1,132 @@
+
+/*
+ * list.less
+ * 文本
+ *
+*/
+
+.list-ex {
+    padding: 1rem;
+}
+.list-item {
+	position: relative;
+	&+.list-item {
+		margin-top: 2rem;
+	}
+	.check-btn {
+		position: absolute;
+		top: 0;
+    	right: 10px;
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    flex-direction: column;
+	    width: 55px;
+	    height: 55px;
+	    background: #1852b9;
+	    border-radius: 0 0 10px 10px;
+	    color: #fff;
+	    z-index: 2;
+	    i {
+	    	margin-bottom: 3px;
+	    	font-size: 1.2rem;
+	    }
+	    span {
+	    	font-size: 12px;
+	    }
+	}
+	.ex-box {
+    	position: relative;
+		padding: .5rem;
+		border: 1px solid #e7e7e7;
+		overflow: hidden;
+	}
+	.ex-title {
+		margin-bottom: .5rem;
+		padding-right: 4rem;
+		font-size: 1rem;
+		font-weight: bold;
+		color: #1852b9;
+		height: 46px;
+	    display: flex;
+	    align-items: center;
+	}
+	.ex-img {
+		width: 100%;
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+	.mask-icon {
+		position: absolute;
+	    width: 53px;
+	    height: 53px;
+	    border-radius: 50%;
+	    background: #ffffff;
+	    right: -9px;
+	    top: -16px;
+	    border: 1px solid #e7e7e7;
+	    display: none;
+	}
+}
+.list-orderly {
+	li {
+		position: relative;
+		padding-left: 30px;
+		.num-label{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			border-radius: 50%;
+    		font-size: 14px;
+			text-align: center;
+			color: #fff;
+			background: @skin1;
+		}
+		p {
+			text-indent: 0;
+		}
+		&+li {
+			margin-top: 1rem;
+		}
+	}
+}
+
+.skin2 {
+	.list-item .ex-title {
+		color: @skin2;
+	}
+	.list-item .check-btn {
+		background: @skin2;
+	}
+	.list-orderly li .num-label {
+		background: @skin2;
+	}
+}
+.skin3 {
+	.list-item .ex-title {
+		color: @skin3;
+	}
+	.list-item .check-btn {
+		background: @skin3;
+	}
+	.list-orderly li .num-label {
+		background: @skin3;
+	}
+}
+.skin4 {
+	.list-item .ex-title {
+		color: @skin4;
+	}
+	.list-item .check-btn {
+		background: @skin4;
+	}
+	.list-orderly li .num-label {
+		background: @skin4;
+	}
+}

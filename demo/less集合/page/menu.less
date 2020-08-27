@@ -1,0 +1,236 @@
+
+/*
+ * menu.less
+ * 菜单
+ *
+*/
+
+@menuH: 100px;
+.menu-layer {
+  overflow: auto;
+  .bg-icon {
+    height: 160px;
+  }
+}
+.menu-box {
+  position: relative;
+  padding: 1.5rem .8rem;
+  z-index: 10;
+}
+.menu-item {
+  border: 1px solid transparent;
+  &+.menu-item {
+    margin-top: 1rem;
+  }
+  &.active {
+    .menu-chapitre {
+      flex: 0 0 100px;
+      height: 45px;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      left: 0;
+      background: none;
+    }
+    .menu-title {
+      height: 45px;
+      align-items: flex-end;
+      padding-right: 1rem;
+      h2 {
+        display: none;
+      }
+    }
+    .menu-content {
+      display: block;
+    }
+  }
+  &.skin-1.active {
+    border-color: #1c559c;
+  }
+  &.skin-2.active {
+    border-color: #10627b;
+  }
+  &.skin-3.active {
+    border-color: #876212;
+  }
+  &.skin-4.active {
+    border-color: #942725;
+  }
+}
+.menu-content {
+  display: none;
+}
+.menu-head {
+  position: relative;
+  display: flex;
+}
+.menu-chapitre {
+  flex: 0 0 30px;
+  padding: 0 10px;
+  color: #fff;
+  height: @menuH;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.menu-title {
+  position: relative;
+  height: @menuH;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  flex: 1;
+  background: rgba(255, 153, 0, 0.7);
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+  }
+  h2,p {
+    z-index: 10;
+  }
+  h2 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: .5rem;
+    font-weight: bold;
+  }
+  p {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #fff;
+    span {
+      display: flex;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      margin-right: .4rem;
+      float: left;
+      justify-content: center;
+      align-items: center;
+      color: #ddd;
+      i {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+.skin-1 {
+  .menu-chapitre {
+    background: #1c559c;
+  }
+  .menu-title {
+    .jpg-image(menu-bg1);
+    background-size: cover;
+    &:before {
+      background: rgba(28, 85, 156, 0.8);
+    }
+  }
+}
+.skin-2 {
+  .menu-chapitre {
+    background: #12627c;
+  }
+  .menu-title {
+    .jpg-image(menu-bg2);
+    background-size: cover;
+    &:before {
+      background: rgba(18, 98, 124, 0.8);
+    }
+  }
+  .menu-list li a:before {
+    background: @skin2;
+  }
+}
+.skin-3 {
+  .menu-chapitre {
+    background: #876212;
+  }
+  .menu-title {
+    .jpg-image(menu-bg3);
+    background-size: cover;
+    &:before {
+      background: rgba(135, 98, 18, 0.8);
+    }
+  }
+  .menu-list li a:before {
+    background: @skin3;
+  }
+}
+.skin-4 {
+  .menu-chapitre {
+    background: #942725;
+  }
+  .menu-title {
+    .jpg-image(menu-bg4);
+    background-size: cover;
+    &:before {
+      background: rgba(148, 39, 37, 0.8);
+    }
+  }
+  .menu-list li a:before {
+    background: @skin4;
+  }
+}
+.menu-list {
+  overflow: hidden;
+  padding: 2.5px;
+  &+.menu-list {
+    border-top: 1px dashed #ececec;
+  }
+  li{
+    width: 33.33%;
+    padding: 2.5px;
+    float: left;
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 40px;
+      padding-left: .8rem;
+      border-radius: 3px;
+      border: 1px solid #ececec;
+      font-size: .8rem;
+      box-shadow: 0 0 2px #ddd;
+      background: #fff;
+      .png-image(liBg);
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: 40%;
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: .4rem;
+        margin-top: -2px;
+        content: "";
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #1c559c;
+      }
+      &:hover,
+      &:focus{
+        border-color: #1c559c;
+      }
+    }
+  }
+}
+.menu-list__title {
+  padding: 10px;
+  color: @skin1;
+  font-size: .875rem;
+  font-weight: bold;
+}
+.skin-2 {
+  .menu-list__title {
+    color: @skin2;
+  }
+}

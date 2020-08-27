@@ -1,0 +1,121 @@
+
+/*
+ * bg.less
+ * 背景
+ *
+*/
+
+.index-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: -webkit-linear-gradient(to bottom, #014694, rgba(36, 160, 232, 0.88));
+    background-image: linear-gradient(to bottom, #014694,rgba(36, 160, 232, 0.88));
+}
+.index-bg2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image:-webkit-linear-gradient(to bottom, rgba(1, 70, 148, 0.7), rgba(0, 165, 212, 0.6)); 
+    background-image: linear-gradient(to bottom, rgba(1, 70, 148, 0.7),rgba(0, 165, 212, 0.6));
+    z-index: 2;
+}
+.bg-icon {
+	.jpg-image(menuTop);
+	width: 100%;
+    display: block;
+    flex: 0 0 160px;
+    height: 160px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-top: -50px;
+}
+.skin2 {
+    .index-bg {
+        background-image: -webkit-linear-gradient(to bottom, #01767a, rgba(11, 119, 127, 0.85));
+        background-image: linear-gradient(to bottom, #01767a, rgba(11, 119, 127, 0.85));
+    }
+}
+.skin3 {
+    .index-bg {
+        background-image: -webkit-linear-gradient(to bottom, #c79f40, rgba(197, 159, 63, 0.8));
+        background-image: linear-gradient(to bottom, #c79f40, rgba(197, 159, 63, 0.8));
+    }
+}
+.skin4 {
+    .index-bg {
+        background-image: -webkit-linear-gradient(to bottom, #851614, rgba(133, 22, 20, 0.8));
+        background-image: linear-gradient(to bottom, #851614, rgba(133, 22, 20, 0.8));
+    }
+}
+.gkzd-bg {
+    position: relative;
+    .png-image(gkzd-bg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+.gm-bg {
+    position: relative;
+    .png-image(gm-bg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+.trees-wrap {
+    position: relative;
+    .png-image(xzfc-bg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+.yy4-bg {
+    position: relative;
+    .png-image(yy4-bg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+.book-bg {
+    overflow: hidden;
+    background: #949494;
+}

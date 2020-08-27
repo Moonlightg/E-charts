@@ -1,0 +1,224 @@
+
+/*
+ * title.less
+ * 标题
+ *
+*/
+
+@tc:   #014694;
+@tcbf: #9bb8da;
+.title {
+  position: relative;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: @tc;
+  &:before {
+    position: absolute;
+    top: 50%;
+    margin-top: 0.5px;
+    content: "";
+    width: 60%;
+    height: 1px;
+    background: @tcbf;
+  }
+  span {
+    position: relative;
+    padding: 5px 15px;
+    background: #fff;
+    z-index: 12;
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      margin-top: -2px;
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 4px;
+      background: @tcbf;
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
+}
+.title-2 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: @skin1;
+  span {
+    position: relative;
+    display: inline-block;
+    padding: .25rem .5rem;
+    margin-bottom: .8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    &:after,
+    &:before {
+      position: absolute;
+      top: 0;
+      content: "";
+      width: 10px;
+      height: 100%;
+      border: 1px solid @skin1;
+    }
+    &:before {
+      left: 0;
+      border-right: none;
+    }
+    &:after {
+      right: 0;
+      border-left: none;
+    }
+  }
+}
+.title-3 {
+  text-align: center;
+  span {
+    position: relative;
+    padding: 5px 10px;
+    display: inline-block;
+    font-weight: bold;
+    background: #fff;
+    color: #000;
+    &:before {
+      position: absolute;
+      top: 50%;
+      content: "";
+      height: 1px;
+      left: -1rem;
+      right: -1rem;
+      background: #000;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+  }
+}
+.title-4 {
+  position: relative;
+  margin: 1rem 0;
+  text-align: center;
+  span {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    padding: 6px 12px;
+    border: 1px solid @skin1;
+    border-radius: 40px;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+    z-index: 2;
+    &:before {
+      position: absolute;
+      top: 5px;
+      content: "";
+      height: 1px;
+      width: 30px;
+      left: -40px;
+      background: @skin1;
+    }
+    &:after {
+      position: absolute;
+      bottom: 5px;
+      content: "";
+      height: 1px;
+      width: 30px;
+      right: -40px;
+      background: @skin1;
+    }
+  }
+  &:before {
+    position: absolute;
+    width: 250px;
+    top: 50%;
+    content: "";
+    height: 1px;
+    left: 50%;
+    background: @skin1;
+    transform: translate(-50%,-50%);
+  }
+}
+.txt-box p.title-2 {
+  text-indent: 0;
+  display: block;
+  text-align: center;
+}
+.p-title {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.skin2 {
+  .title-2 {
+    color: @skin2;
+    span {
+      &:after,
+      &:before {
+        border-color: @skin2;
+      }
+    }
+  }
+  .title-4 {
+    span {
+      border: 1px solid @skin2;
+      &:before,
+      &:after{
+        background: @skin2;
+      }
+    }
+    &:before {
+      background: @skin2;
+    }
+  }
+}
+.skin3 {
+  .title-2 {
+    color: @skin3;
+    span {
+      &:after,
+      &:before {
+        border-color: @skin3;
+      }
+    }
+  }
+  .title-4 {
+    span {
+      border: 1px solid @skin3;
+      &:before,
+      &:after{
+        background: @skin3;
+      }
+    }
+    &:before {
+      background: @skin3;
+    }
+  }
+}
+.skin4 {
+  .title-4 {
+    span {
+      border: 1px solid @skin4;
+      &:before,
+      &:after{
+        background: @skin4;
+      }
+    }
+    &:before {
+      background: @skin4;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+
+/*
+ * head.less
+ * 头部
+ *
+*/
+
+.hh-box {
+    position: relative;
+    z-index: 99;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #12539c;
+    z-index: 10;
+    &+.preface-box {
+        padding-top: 50px;
+    }
+    &.no-bg {
+        background: none;
+    }
+}
+.header .menu-i {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    font-size: 20px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #e7e7e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+.wave-bg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    .png-image(wave-bg);
+    background-size: cover;
+    background-position: center;
+    z-index: 7;
+}
+.chapter-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.chapter-bg img{
+    width: 100%;
+}
+/* 前沿 */
+.preface-box {
+    padding: 0 15px;
+    padding-bottom: 60px;
+}
+.preface-box h1 {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+.preface-txt {
+    color: #fff;
+    p {
+        text-indent: 2rem;
+        line-height: 1.4;
+        display: inline-block;
+        text-align: justify;
+        color: #fff;
+    }
+} 
+@media (min-width: 640px) {
+    .wave-bg {
+        height: 100px;
+    }
+    .preface-box {
+        padding: 0 30px 100px;
+        font-size: 18px;
+    }
+}

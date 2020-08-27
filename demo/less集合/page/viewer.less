@@ -1,0 +1,40 @@
+.viewer-toolbar > ul > li {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: rgb(99, 102, 103);
+    &:hover {
+        background-color: rgb(99, 102, 103);
+    }
+    &::before {
+        margin: 7px auto;
+    }
+    &+li {
+        margin-left: 5px;
+    }
+    &.viewer-reset,
+    &.viewer-prev,
+    &.viewer-play,
+    &.viewer-next,
+    &.viewer-flip-horizontal,
+    &.viewer-flip-vertical {
+        display: none;
+    }
+}
+.viewer-navbar {
+    display: none;
+}
+/* 重置图片查看 */
+.viewer-button {
+    top: -30px;
+    right: 50%;
+    margin-right: -30px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    &::before {
+      bottom: 7px;
+      left: 20px;
+      position: absolute;
+  }
+}

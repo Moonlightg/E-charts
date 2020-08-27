@@ -1,0 +1,80 @@
+
+/*
+ * footer.less
+ * 底部
+ *
+*/
+
+.footer-page {
+	display: flex;
+	justify-content: space-between;
+	height: 45px;
+	padding: 0 2rem;
+	background: #1045a3;
+	.png-image(footer-logo);
+	background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center -2px;
+    a {
+    	position: relative;
+    	display: flex;
+    	align-items: center;
+    	color: #fff;
+    }
+    .page-icon {
+    	display: flex;
+	    justify-content: center;
+	    margin: 0 .5rem;
+	    width: 20px;
+	    height: 20px;
+	    border-radius: 50%;
+	    border: 1px solid #fff;
+	    float: left;
+    }
+    b {
+    	position: absolute;
+	    top: 30px;
+	    text-align: center;
+	    width: 100%;
+	    font-size: 12px;
+	    font-weight: 400;
+	    &.fp-l{
+	    	padding-left: 20px;
+	    }
+	    &.fp-r{
+	    	left: -7px;
+    		text-align: left;
+	    }
+	    
+    }
+    &.flex-end {
+    	justify-content: flex-end;
+    }
+}
+.skin2 {
+	.footer-page {
+		background: @skin2;
+		.png-image(footer-logo2);
+		background-repeat: no-repeat;
+	    background-size: contain;
+	    background-position: center -2px;
+	}
+}
+.skin3 {
+	.footer-page {
+		background: @skin3;
+		.png-image(footer-logo3);
+		background-repeat: no-repeat;
+	    background-size: contain;
+	    background-position: center -2px;
+	}
+}
+.skin4 {
+	.footer-page {
+		background: @skin4;
+		.png-image(footer-logo4);
+		background-repeat: no-repeat;
+	    background-size: contain;
+	    background-position: center -2px;
+	}
+}
