@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<style>
+		/**css样式*/
+		.input {
+			width: 200px;
+			height: 24px;
+			line-height: 24px;
+			font-size: 14px;
+			padding: 5px 8px;
+			border: 1px solid #ddd;
+		}
+
+		.input:empty::before {
+			content: attr(placeholder);
+		}
+
+		/**css样式*/
+		.input {
+			width: 200px;
+			height: 24px;
+			line-height: 24px;
+			font-size: 14px;
+			padding: 5px 8px;
+			border: 1px solid #ddd;
+		}
+
+		.input:empty::before {
+			content: attr(placeholder);
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <p id="msg3"></p> -->
+	<input type="" name="" id="inputs" value="" />
+	<div id="msg3" class='input' contenteditable="false" placeholder='请输入文字' onkeypress="" onmouseover="bgshow(this)"
+		onmouseout="gg(this)"></div>
+	<div id="msg4" style="display: flex;flex-direction: row;">
+	</div>
+	<div id="msg5" class='input' contenteditable="true" placeholder='请输入文字' onfocus="changeColor(this)"
+		onmouseover="bgshow(this)" onmouseout="gg(this)"></div>
+	<script>
+		var inputs = document.getElementById('inputs');
+		
+		var html1 = '<div id="" onclick="add(this)" style="width: 50px;height: 30px;border: black solid 1PX;text-align: center;">';
+		var html2 = '</div>';
+		var msg3 = document.getElementById('msg3');
+		var msg4 = document.getElementById('msg4');
+		inputs.oninput = function (e) {
+			var str = inputs.value.replace(/(^\s*)|(\s*$)/g, "");
+			var arr = str.split(/([\*\#\?])/).filter(Boolean);
+			console.log(arr);
+			var a = 1;
+			var b = 1;
+			var c = 1;
+			var html = '';
+			for (let index = 0; index < arr.length; index++) {
+				const element = arr[index];
+				console.log("element:"+element);
+				if (element === '*' && arr[index+1] !== '*') {
+					html += html1 + element + '<SUB>' + a + '</SUB>&nbsp;' + html2;
+					a += 1;
+				} else if ( element === '*' && arr[index+1] === '*') {
+					// 禁止输入两个相邻的*
+					console.log("两个*了");
+					var ind = inputs.value.length - 1;
+					inputs.value = inputs.value.substring(0, ind);
+					return false;
+				} else if (element === '?') {
+					html += html1 + element + '<SUB>' + b + '</SUB>&nbsp;' + html2;
+					b += 1;
+				} else if (element === '#') {
+					html += html1 + element + '<SUB>' + c + '</SUB>&nbsp;' + html2;
+					c += 1;
+				} else {
+					html += html1 + element + html2;
+				}
+			}
+			msg4.innerHTML = html;
+
+			// for (var i=0;i<str.length;i++){
+			// 	//arr.push(str[i]); 
+			// 	if (str[i] === '*' || str[i] === '?' || str[i] === '#' ) {
+			// 		arrA.push(str[i]);
+			// 		console.log(arrA);
+			// 	} else {
+			// 		hhh += str[i];
+			// 		console.log("hhh:"+hhh);
+			// 		//arr.splice([arr_i],0,str[i]);
+			// 		//arr[arr_i].push(str[i]);
+			// 	}
+			// 	console.log("arr");
+			// 	console.log(arr);
+			// }
+
+			// console.log(typeof(inputs.value));
+			// console.log(e);
+			// var lastStr = (inputs.value).substr(inputs.value.length - 1, 1)
+			// // console.log(lastStr);
+			// if (e.data === '*') {
+			// 	// msg3.innerHTML += eve.key + '<SUB>' + a + '</SUB>';
+			// 	msg4.innerHTML += html1 + e.data + '<SUB>' + a + '</SUB>&nbsp;' + html2;
+			// 	//console.log(msg4.innerHTML)
+			// 	a += 1;
+			// } else if (e.data === '?') {
+			// 	// msg3.innerHTML += eve.key + '<SUB>' + b + '</SUB>';
+			// 	msg4.innerHTML += html1 + e.data + '<SUB>' + b + '</SUB>&nbsp;' + html2;
+			// 	b += 1;
+			// } else if (e.data === '#') {
+			// 	// msg3.innerHTML += eve.key + '<SUB>' + c + '</SUB>';
+			// 	msg4.innerHTML += html1 + e.data + '<SUB>' + c + '</SUB>&nbsp;' + html2;
+			// 	c += 1;
+			// } else if (lastStr != '*' || lastStr != '?' || lastStr != '#') {
+			// 	// msg3.innerHTML += eve.key;
+			// 	/* if(msg4.childElementCount > 0){
+			// 		msg4.removeChild(msg4.childNodes[msg4.childElementCount-1]);
+			// 	} */
+
+			// 	msg4.innerHTML += html1 + inputs.value + html2;
+			// 	//console.log(msg4.children);
+			// 	// console.log(msg4.children.index);
+			// 	// document.getElementById('msg4').removeChild(msg4.children);
+			// 	//console.log("====:"+msg4.childElementCount);
+			// }
+		}
+
+
+
+		// var a = 1;
+		// var b = 1;
+		// var c = 1;
+		// var html1 = '<div id="" onclick="add(this)" style="width: 50px;height: 30px;border: black solid 1PX;text-align: center;">';
+		// var html2 = '</div>';
+		// function keyboard(eve) {
+		// 	if (eve.key === '*') {
+		// 		msg3.innerHTML += eve.key + '<SUB>' + a + '</SUB>';
+		// 		msg4.innerHTML += html1 + eve.key + '<SUB>' + a + '</SUB>' + html2;
+		// 		a += 1;
+		// 	} else if (eve.key === '?') {
+		// 		msg3.innerHTML += eve.key + '<SUB>' + b + '</SUB>';
+		// 		msg4.innerHTML += html1 + eve.key + '<SUB>' + b + '</SUB>' + html2;
+		// 		b += 1;
+		// 	} else if (eve.key === '#') {
+		// 		msg3.innerHTML += eve.key + '<SUB>' + c + '</SUB>';
+		// 		msg4.innerHTML += html1 + eve.key + '<SUB>' + c + '</SUB>' + html2;
+		// 		c += 1;
+		// 	} else {
+		// 		msg3.innerHTML += eve.key;
+		// 		msg4.innerHTML += html1 + eve.key + html2;
+		// 	}
+		// }
+		// document.onkeyup = keyboard;
+		// document.onkeypress = keyboard;
+
+		function changeColor(obj) {
+			//因为JS会把HTML标签当做一个对象  
+			//对象.属性 = 值;  
+			obj.style.background = 'pink';
+		}
+
+		function bgshow(tagi) {
+			tagi.style.background = 'pink';
+			/* if (tagi.style.display == "none") {
+				baitagi.style.background = "#000000"; //这里du填写颜色
+			} else {
+				tagi.style.background = "#ffffff"; //颜色
+			} */
+		}
+
+		function gg(tagi) {
+			console.log(2);
+			tagi.style.background = "#ffffff";
+		}
+		function add(e) {
+			console.log(e.innerHTML);
+			msg5.innerHTML += e.innerHTML;
+		}
+
+		/* document.getElementById('msg3').onkeypress = function(e){
+			console.log(e)
+		} */
+	</script>
+</body>
+
+</html>
