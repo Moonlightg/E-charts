@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<style>
+		/**css样式*/
+		.input {
+			line-height: 24px;
+			font-size: 14px;
+			padding: 5px 8px;
+			border: 1px solid #ddd;
+		}
+
+		.input:empty::before {
+			content: attr(placeholder);
+		}
+
+		/**css样式*/
+		.input {
+			width: 500px;
+			min-height: 24px;
+			line-height: 24px;
+			font-size: 14px;
+			padding: 5px 8px;
+			border: 1px solid #ddd;
+		}
+
+		.input:empty::before {
+			content: attr(placeholder);
+		}
+
+		/*新增样式*/
+		.ns-box {
+			padding: 15px;
+		}
+		.ns-bitem {
+			margin: 10px;
+		}
+		.ns-input {
+			min-width: 500px;
+			line-height: 24px;
+			font-size: 14px;
+			padding: 5px 8px;
+			border: 1px solid #ddd;
+		}
+		.ns-list {
+			overflow: hidden;
+		}
+		.ns-list-item {
+			float: left;
+			position: relative;
+			z-index: 1;
+			height: 30px;
+			line-height: 30px;
+			min-width: 30px;
+			padding: 0 5px;
+			text-align: center;
+			border: 1px solid #e7e7e7;
+			box-sizing: content-box;
+		}
+		.ns-list-item:hover {
+			overflow: visible;
+    		z-index: 10;
+			background: #e6f7ff;
+		    border-color: #2196F3;
+		    color: #2196F3;
+		}
+		.ns-file {
+		    position: relative;
+		    display: inline-block;
+		    background: #D0EEFF;
+		    border: 1px solid #99D3F5;
+		    line-height: 24px;
+		    font-size: 14px;
+		    padding: 5px 8px;
+		    overflow: hidden;
+		    color: #1E88C7;
+		    text-decoration: none;
+		    text-indent: 0;
+		    display: inline-block;
+		    vertical-align: middle;
+		    margin-top: -3px;
+		}
+		.ns-file input {
+		    position: absolute;
+		    font-size: 100px;
+		    right: 0;
+		    top: 0;
+		    opacity: 0;
+		}
+		.ns-file:hover {
+		    background: #AADFFD;
+		    border-color: #78C3F3;
+		    color: #004974;
+		    text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="ns-box">
+		<div class="ns-bitem">
+			<input type="" name="" id="inputs" value="" class="ns-input" />
+			<a href="javascript:;" class="ns-file">选择模版
+			    <input type="file" name="" id="">
+			</a>
+		</div>
+		<div class="ns-bitem">
+			<div id="msg4" class="ns-list">
+			</div>
+		</div>
+		<div class="ns-bitem">
+			<div id="msg5" class='input' contenteditable="true" placeholder='请输入文字' onfocus="changeColor(this)"
+				onmouseover="bgshow(this)" onmouseout="gg(this)" style="word-break: break-all;"></div>
+		</div>
+	</div>
+	<script>
+		var inputs = document.getElementById('inputs');
+		
+		var html1 = '<div id="" class="ns-list-item" onclick="add(this)">';
+		var html2 = '</div>';
+		var msg4 = document.getElementById('msg4');
+		inputs.oninput = function (e) {
+			var str = inputs.value.replace(/(^\s*)|(\s*$)/g, "");
+			var arr = str.split(/([\*\#\?])/).filter(Boolean);
+			console.log(arr);
+			var a = 1;
+			var b = 1;
+			var c = 1;
+			var html = '';
+			for (let index = 0; index < arr.length; index++) {
+				const element = arr[index];
+				console.log("element:"+element);
+				if (element === '*' && arr[index+1] !== '*') {
+					html += html1 + element + '<SUB contenteditable="false">' + a + '</SUB>' + html2;
+					a += 1;
+				} else if ( element === '*' && arr[index+1] === '*') {
+					// 禁止输入两个相邻的*
+					console.log("两个*了");
+					var ind = inputs.value.length - 1;
+					inputs.value = inputs.value.substring(0, ind);
+					return false;
+				} else if (element === '?') {
+					html += html1 + element + '<SUB contenteditable="false">' + b + '</SUB>' + html2;
+					b += 1;
+				} else if (element === '#') {
+					html += html1 + element + '<SUB contenteditable="false">' + c + '</SUB>' + html2;
+					c += 1;
+				} else {
+					html += html1 + element + html2;
+				}
+			}
+			msg4.innerHTML = html;
+		}
+
+
+		function changeColor(obj) {
+			//因为JS会把HTML标签当做一个对象  
+			//对象.属性 = 值;  
+			obj.style.background = '#e6f7ff';
+		}
+
+		function bgshow(tagi) {
+			tagi.style.background = '#e6f7ff';
+		}
+
+		function gg(tagi) {
+			console.log(2);
+			tagi.style.background = "#ffffff";
+		}
+		function add(e) {
+			console.log(e.innerHTML);
+			msg5.innerHTML += e.innerHTML;
+		}
+
+	</script>
+</body>
+
+</html>
